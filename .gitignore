@@ -1,0 +1,10 @@
+assistant-web-backend/.idea
+assistant-web-backend/target
+assistant-web-backend/.mvn/wrapper/maven-wrapper.jar
+assistant-web-frontend/.dart_tool
+assistant-web-frontend/.idea
+assistant-web-frontend/build
+assistant-web-frontend/.flutter-plugins
+assistant-web-frontend/.flutter-plugins-dependencies
+assistant-web-frontend/.assistant-web-frontend.iml
+
