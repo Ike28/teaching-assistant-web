@@ -19,24 +19,12 @@ class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   User user = User('', '');
-  final Uri uri = Uri(
-      scheme: 'http',
-      host: 'localhost',
-      port: 8000,
-      path: '/register'
-  );
+  final Uri uri = Uri(scheme: 'http', host: 'localhost', port: 8000, path: '/register');
 
   Future<void> save() async {
-    await http.post(
-        uri,
-        headers: <String, String>{
-          'Content-Type': 'application/json'
-        },
-        body: json.encode(<String, String>{
-          'email': user.email,
-          'password': user.password
-        })
-    );
+    await http.post(uri,
+        headers: <String, String>{'Content-Type': 'application/json'},
+        body: json.encode(<String, String>{'email': user.email, 'password': user.password}));
     Navigator.pop(context);
   }
 
@@ -53,14 +41,8 @@ class _RegisterState extends State<Register> {
                   width: MediaQuery.of(context).size.width,
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(233, 65, 82, 1),
-                    boxShadow: <BoxShadow>[
-                      BoxShadow(
-                          blurRadius: 10,
-                          offset: Offset(1, 4))
-                    ],
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(80),
-                        bottomRight: Radius.circular(20)),
+                    boxShadow: <BoxShadow>[BoxShadow(blurRadius: 10, offset: Offset(1, 4))],
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(80), bottomRight: Radius.circular(20)),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
@@ -102,20 +84,10 @@ class _RegisterState extends State<Register> {
                             }
                             return null;
                           },
-                          style: const TextStyle(
-                              fontSize: 30,
-                              color: Colors.white
-                          ),
+                          style: const TextStyle(fontSize: 30, color: Colors.white),
                           decoration: const InputDecoration(
-                              errorStyle:
-                              TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black
-                              ),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none
-                              )
-                          ),
+                              errorStyle: TextStyle(fontSize: 20, color: Colors.black),
+                              border: OutlineInputBorder(borderSide: BorderSide.none)),
                         ),
                         Container(
                           height: 8,
@@ -136,8 +108,7 @@ class _RegisterState extends State<Register> {
                         ),
                         TextFormField(
                           obscureText: true,
-                          controller:
-                          TextEditingController(text: user.password),
+                          controller: TextEditingController(text: user.password),
                           onChanged: (String val) {
                             user.password = val;
                           },
@@ -151,10 +122,8 @@ class _RegisterState extends State<Register> {
                           },
                           style: const TextStyle(fontSize: 30, color: Colors.white),
                           decoration: const InputDecoration(
-                              errorStyle:
-                              TextStyle(fontSize: 20, color: Colors.black),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide.none)),
+                              errorStyle: TextStyle(fontSize: 20, color: Colors.black),
+                              border: OutlineInputBorder(borderSide: BorderSide.none)),
                         ),
                         Container(
                           height: 8,
@@ -170,10 +139,7 @@ class _RegisterState extends State<Register> {
                             },
                             child: Text(
                               'Already have Account ?',
-                              style: GoogleFonts.roboto(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  color: Colors.white),
+                              style: GoogleFonts.roboto(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
                             ),
                           ),
                         )
@@ -193,14 +159,8 @@ class _RegisterState extends State<Register> {
                     },
                     style: ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(40)
-                            )
-                        ),
-                        backgroundColor: MaterialStateProperty.all<Color>(
-                            const Color.fromRGBO(233, 65, 82, 1)
-                        )
-                    ),
+                            RoundedRectangleBorder(borderRadius: BorderRadius.circular(40))),
+                        backgroundColor: MaterialStateProperty.all<Color>(const Color.fromRGBO(233, 65, 82, 1))),
                     child: const Icon(
                       Icons.arrow_forward,
                       size: 20,

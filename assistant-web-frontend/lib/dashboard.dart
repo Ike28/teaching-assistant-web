@@ -20,13 +20,8 @@ class _DashboardState extends State<Dashboard> {
               width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                 color: Color.fromRGBO(233, 65, 82, 1),
-                boxShadow: <BoxShadow>[
-                  BoxShadow(
-                      blurRadius: 10, offset: Offset(1, 5))
-                ],
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(80),
-                    bottomRight: Radius.circular(20)),
+                boxShadow: <BoxShadow>[BoxShadow(blurRadius: 10, offset: Offset(1, 5))],
+                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(80), bottomRight: Radius.circular(20)),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
