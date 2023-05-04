@@ -42,7 +42,7 @@ class _RegisterState extends State<Register> {
                   decoration: const BoxDecoration(
                     color: Color.fromRGBO(233, 65, 82, 1),
                     boxShadow: <BoxShadow>[BoxShadow(blurRadius: 10, offset: Offset(1, 4))],
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(80), bottomRight: Radius.circular(20)),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),

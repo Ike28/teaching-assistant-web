@@ -99,6 +99,7 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             TextFormField(
+                              obscureText: true,
                               controller: TextEditingController(text: user.password),
                               onChanged: (String val) {
                                 user.password = val;
