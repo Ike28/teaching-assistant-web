@@ -7,4 +7,5 @@ assistant-web-frontend/build
 assistant-web-frontend/.flutter-plugins
 assistant-web-frontend/.flutter-plugins-dependencies
 assistant-web-frontend/.assistant-web-frontend.iml
-
+.idea
+.vs

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../pallete.dart';
+import '../../style/palette.dart';
 
-class AppBarActionItems extends StatelessWidget {
-  const AppBarActionItems({super.key});
+class NavBarActionItems extends StatelessWidget {
+  const NavBarActionItems({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
-      children: [
+      children: <Widget>[
         IconButton(
             icon: SvgPicture.asset(
               'assets/calendar.svg',
@@ -18,9 +18,7 @@ class AppBarActionItems extends StatelessWidget {
             ),
             onPressed: () {}),
         const SizedBox(width: 10),
-        IconButton(
-            icon: SvgPicture.asset('assets/ring.svg', width: 20.0),
-            onPressed: () {}),
+        IconButton(icon: SvgPicture.asset('assets/ring.svg', width: 20.0), onPressed: () {}),
         const SizedBox(width: 15),
         Row(children: const <Widget>[
           CircleAvatar(

@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
-import 'user.dart';
+import '../api_model/user.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});

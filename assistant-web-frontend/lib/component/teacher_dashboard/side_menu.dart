@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../config/size_config.dart';
-import '../pallete.dart';
+import '../../config/size_config.dart';
+import '../../style/palette.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});
@@ -16,20 +16,19 @@ class SideMenu extends StatelessWidget {
         height: SizeConfig.screenHeight,
         decoration: const BoxDecoration(color: Palette.secondaryBg),
         child: SingleChildScrollView(
-                  child: Column(
-            children: [
-             Container(
-               height: 100,
-               alignment: Alignment.topCenter,
-               width: double.infinity,
-               padding: const EdgeInsets.only(top: 20),
-               child: SizedBox(
-                    width: 35,
-                    height: 20,
-                    child: SvgPicture.asset('assets/mac-action.svg'),
-                  ),
-             ),
-            
+          child: Column(
+            children: <Widget>[
+              Container(
+                height: 100,
+                alignment: Alignment.topCenter,
+                width: double.infinity,
+                padding: const EdgeInsets.only(top: 20),
+                child: SizedBox(
+                  width: 35,
+                  height: 20,
+                  child: SvgPicture.asset('assets/mac-action.svg'),
+                ),
+              ),
               IconButton(
                   iconSize: 20,
                   padding: const EdgeInsets.symmetric(vertical: 20.0),

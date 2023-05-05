@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'login2.dart';
+import 'views/login2.dart';
 
 void main() {
   runApp(const MaterialApp(

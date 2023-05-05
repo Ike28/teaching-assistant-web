@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'pallete.dart';
-import 'widgets/gradient_button.dart';
-import 'widgets/login_field.dart';
-import 'widgets/social_button.dart';
+import '../component/teacher_login/login_button.dart';
+import '../component/teacher_login/login_field.dart';
+import '../component/teacher_login/social_login_button.dart';
+import '../style/palette.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,16 +20,12 @@ class LoginScreen extends StatelessWidget {
                 Image.asset('assets/img/sign_in.png'),
                 const Text(
                   'Bun venit',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                    color: Palette.whiteColor
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50, color: Palette.whiteColor),
                 ),
                 const SizedBox(height: 50),
-                const SocialButton(iconPath: 'assets/svg/g_logo.svg', label: 'Continuă cu GitHub'),
+                const SocialLoginButton(iconPath: 'assets/svg/g_logo.svg', label: 'Continuă cu GitHub'),
                 const SizedBox(height: 20),
-                const SocialButton(
+                const SocialLoginButton(
                   iconPath: 'assets/svg/f_logo.svg',
                   label: 'Continuă cu Google',
                   horizontalPadding: 90,
@@ -46,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 15),
                 const LoginField(hintText: 'Parolă', obscure: true),
                 const SizedBox(height: 20),
-                const GradientButton(),
+                const LoginButton(),
                 const SizedBox(height: 100)
               ],
             ),

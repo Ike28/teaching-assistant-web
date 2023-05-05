@@ -9,12 +9,16 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
+        working-directory: ./assistant-web-frontend
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
+        working-directory: ./assistant-web-frontend
 
       - name: Check format
-        run: flutter format --line-length 120 --set-exit-if-changed ./lib
+        working-directory: ./assistant-web-frontend
+        run: flutter format --line-length 120 --set-exit-if-changed ./assistant-web-frontend/lib
 
       - name: Analyze code
+        working-directory: ./assistant-web-frontend
         run: flutter analyze
