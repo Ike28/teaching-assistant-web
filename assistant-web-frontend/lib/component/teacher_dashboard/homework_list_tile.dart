@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../style/palette.dart';
-import '../style/style.dart';
+import '../../style/palette.dart';
+import '../../style/primary_text.dart';
 
 class HomeworkListTile extends StatelessWidget {
   const HomeworkListTile({super.key, required this.icon, required this.label, required this.amount});

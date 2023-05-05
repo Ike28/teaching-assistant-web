@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../style/palette.dart';
+import '../../style/palette.dart';
 
 class NavBarActionItems extends StatelessWidget {
   const NavBarActionItems({super.key});

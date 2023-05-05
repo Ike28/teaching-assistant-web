@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../config/size_config.dart';
-import '../style/palette.dart';
+import '../../config/size_config.dart';
+import '../../style/palette.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../config/responsive.dart';
-import '../config/size_config.dart';
-import '../sample_dashboard_data.dart';
-import '../style/palette.dart';
-import '../style/style.dart';
+import '../../config/responsive.dart';
+import '../../config/size_config.dart';
+import '../../sample_dashboard_data.dart';
+import '../../style/palette.dart';
+import '../../style/primary_text.dart';
 
 class HistoryTable extends StatelessWidget {
   const HistoryTable({super.key});

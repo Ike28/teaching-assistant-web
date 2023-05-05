@@ -1,8 +1,8 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
-import '../config/responsive.dart';
-import '../style/palette.dart';
+import '../../config/responsive.dart';
+import '../../style/palette.dart';
 
 class HomeworkProgressChart extends StatelessWidget {
   const HomeworkProgressChart({super.key});

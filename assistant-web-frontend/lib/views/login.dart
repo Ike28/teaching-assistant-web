@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
-import '../model/user.dart';
-import 'dashboard.dart';
+import '../api_model/user.dart';
+import 'teacher_dashboard.dart';
 import 'register.dart';
 
 class Login extends StatefulWidget {
@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
         headers: <String, String>{'Content-Type': 'application/json'},
         body: json.encode(<String, String>{'email': user.email, 'password': user.password}));
     // ignore: use_build_context_synchronously
-    Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => Dashboard()));
+    Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => TeacherDashboard()));
   }
 
   @override

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../config/responsive.dart';
-import '../config/size_config.dart';
-import '../style/palette.dart';
-import '../style/style.dart';
+import '../../config/responsive.dart';
+import '../../config/size_config.dart';
+import '../../style/palette.dart';
+import '../../style/primary_text.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({super.key, required this.icon, required this.label, required this.amount});

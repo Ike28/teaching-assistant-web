@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../style/palette.dart';
-import '../views/dashboard.dart';
+import '../../style/palette.dart';
+import '../../views/teacher_dashboard.dart';
 
-class GradientButton extends StatelessWidget {
-  const GradientButton({super.key});
+class LoginButton extends StatelessWidget {
+  const LoginButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class GradientButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => Dashboard()));
+          Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => TeacherDashboard()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(395, 55),
@@ -31,7 +31,7 @@ class GradientButton extends StatelessWidget {
           shadowColor: Colors.transparent,
         ),
         child: const Text(
-          'Sign in',
+          'Conectare cadru didactic',
           style: TextStyle(
             fontWeight: FontWeight.w600,
             fontSize: 17,

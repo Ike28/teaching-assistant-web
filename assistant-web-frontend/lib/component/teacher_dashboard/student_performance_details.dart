@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../config/size_config.dart';
-import '../sample_dashboard_data.dart';
-import '../style/palette.dart';
-import '../style/style.dart';
+import '../../config/size_config.dart';
+import '../../sample_dashboard_data.dart';
+import '../../style/palette.dart';
+import '../../style/primary_text.dart';
 import 'homework_list_tile.dart';
 
 class StudentPerformanceDetails extends StatelessWidget {

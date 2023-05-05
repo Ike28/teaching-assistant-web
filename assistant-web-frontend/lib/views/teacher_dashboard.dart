@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../component/navbar_action_items.dart';
-import '../component/homework_progress_chart.dart';
-import '../component/header.dart';
-import '../component/history_table.dart';
-import '../component/info_card.dart';
-import '../component/student_performance_details.dart';
-import '../component/side_menu.dart';
+import '../component/teacher_dashboard/header.dart';
+import '../component/teacher_dashboard/history_table.dart';
+import '../component/teacher_dashboard/homework_progress_chart.dart';
+import '../component/teacher_dashboard/info_card.dart';
+import '../component/teacher_dashboard/navbar_action_items.dart';
+import '../component/teacher_dashboard/side_menu.dart';
+import '../component/teacher_dashboard/student_performance_details.dart';
 import '../config/responsive.dart';
 import '../config/size_config.dart';
 import '../style/palette.dart';
-import '../style/style.dart';
+import '../style/primary_text.dart';
 
-class Dashboard extends StatelessWidget {
-  Dashboard({super.key});
+class TeacherDashboard extends StatelessWidget {
+  TeacherDashboard({super.key});
 
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
 

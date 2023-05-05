@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../style/palette.dart';
+import '../../style/palette.dart';
 
 class LoginField extends StatelessWidget {
   const LoginField({super.key, required this.hintText, required this.obscure});
