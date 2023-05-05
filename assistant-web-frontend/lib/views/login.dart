@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
 import '../api_model/user.dart';
-import 'teacher_dashboard.dart';
 import 'register.dart';
+import 'teacher_dashboard.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
