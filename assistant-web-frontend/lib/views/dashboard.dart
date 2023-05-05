@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'component/appBarActionItems.dart';
-import 'component/barChart.dart';
-import 'component/header.dart';
-import 'component/historyTable.dart';
-import 'component/infoCard.dart';
-import 'component/paymentDetailList.dart';
-import 'component/sideMenu.dart';
-import 'config/responsive.dart';
-import 'config/size_config.dart';
-import 'pallete.dart';
-import 'style/style.dart';
+import '../component/navbar_action_items.dart';
+import '../component/homework_progress_chart.dart';
+import '../component/header.dart';
+import '../component/history_table.dart';
+import '../component/info_card.dart';
+import '../component/student_performance_details.dart';
+import '../component/side_menu.dart';
+import '../config/responsive.dart';
+import '../config/size_config.dart';
+import '../style/palette.dart';
+import '../style/style.dart';
 
 class Dashboard extends StatelessWidget {
   Dashboard({super.key});
@@ -32,8 +32,8 @@ class Dashboard extends StatelessWidget {
                     _drawerKey.currentState?.openDrawer();
                   },
                   icon: const Icon(Icons.menu, color: Palette.backgroundColor)),
-              actions: const [
-                AppBarActionItems(),
+              actions: const <NavBarActionItems>[
+                NavBarActionItems(),
               ],
             )
           : const PreferredSize(
@@ -43,21 +43,20 @@ class Dashboard extends StatelessWidget {
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: <Widget>[
             if (Responsive.isDesktop(context))
               const Expanded(
-                flex: 1,
                 child: SideMenu(),
               ),
             Expanded(
                 flex: 10,
                 child: SafeArea(
                   child: SingleChildScrollView(
-                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                    padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Header(),
+                      children: <Widget>[
+                        const Header(),
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 4,
                         ),
@@ -67,23 +66,11 @@ class Dashboard extends StatelessWidget {
                             spacing: 20,
                             runSpacing: 20,
                             alignment: WrapAlignment.spaceBetween,
-                            children: const [
-                              InfoCard(
-                                  icon: 'assets/credit-card.svg',
-                                  label: 'Gestiune clasă',
-                                  amount: r'>'),
-                              InfoCard(
-                                  icon: 'assets/transfer.svg',
-                                  label: 'Modifică teme',
-                                  amount: r'>'),
-                              InfoCard(
-                                  icon: 'assets/bank.svg',
-                                  label: 'Adaugă teme',
-                                  amount: r'>'),
-                              InfoCard(
-                                  icon: 'assets/invoice.svg',
-                                  label: 'Export statistici',
-                                  amount: '>'),
+                            children: const <InfoCard>[
+                              InfoCard(icon: 'assets/credit-card.svg', label: 'Gestiune clasă', amount: r'>'),
+                              InfoCard(icon: 'assets/transfer.svg', label: 'Modifică teme', amount: r'>'),
+                              InfoCard(icon: 'assets/bank.svg', label: 'Adaugă teme', amount: r'>'),
+                              InfoCard(icon: 'assets/invoice.svg', label: 'Export statistici', amount: '>'),
                             ],
                           ),
                         ),
@@ -92,21 +79,16 @@ class Dashboard extends StatelessWidget {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
+                          children: <Widget>[
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
+                              children: const <PrimaryText>[
                                 PrimaryText(
                                   text: '',
                                   size: 16,
-                                  fontWeight: FontWeight.w400,
                                   color: Palette.secondary,
                                 ),
-                                PrimaryText(
-                                    text: 'Progres teme',
-                                    size: 30,
-                                    fontWeight: FontWeight.w800),
+                                PrimaryText(text: 'Progres teme', size: 30, fontWeight: FontWeight.w800),
                               ],
                             ),
                             const PrimaryText(
@@ -119,20 +101,17 @@ class Dashboard extends StatelessWidget {
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 3,
                         ),
-                        Container(
+                        const SizedBox(
                           height: 180,
-                          child: BarChartCopmponent(),
+                          child: HomeworkProgressChart(),
                         ),
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 5,
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            PrimaryText(
-                                text: 'Activități recente',
-                                size: 30,
-                                fontWeight: FontWeight.w800),
+                          children: const <PrimaryText>[
+                            PrimaryText(text: 'Activități recente', size: 30, fontWeight: FontWeight.w800),
                             PrimaryText(
                               text: '',
                               size: 16,
@@ -144,7 +123,7 @@ class Dashboard extends StatelessWidget {
                           height: SizeConfig.blockSizeVertical * 3,
                         ),
                         const HistoryTable(),
-                        if (!Responsive.isDesktop(context)) const PaymentDetailList()
+                        if (!Responsive.isDesktop(context)) const StudentPerformanceDetails()
                       ],
                     ),
                   ),
@@ -158,12 +137,11 @@ class Dashboard extends StatelessWidget {
                     height: SizeConfig.screenHeight,
                     decoration: const BoxDecoration(color: Palette.gradient1),
                     child: SingleChildScrollView(
-                      padding:
-                          const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                       child: Column(
-                        children: const [
-                          AppBarActionItems(),
-                          PaymentDetailList(),
+                        children: const <Widget>[
+                          NavBarActionItems(),
+                          StudentPerformanceDetails(),
                         ],
                       ),
                     ),

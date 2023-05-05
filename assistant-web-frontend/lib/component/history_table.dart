@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../config/responsive.dart';
 import '../config/size_config.dart';
-import '../data.dart';
-import '../pallete.dart';
+import '../sample_dashboard_data.dart';
+import '../style/palette.dart';
 import '../style/style.dart';
 
 class HistoryTable extends StatelessWidget {
@@ -13,51 +13,50 @@ class HistoryTable extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Responsive.isDesktop(context) ? Axis.vertical : Axis.horizontal,
-          child: SizedBox(
-            width: SizeConfig.screenWidth,
-            child: Table(
-        defaultVerticalAlignment:
-              TableCellVerticalAlignment.middle,
-        children: List.generate(
-            transactionHistory.length,
+      child: SizedBox(
+        width: SizeConfig.screenWidth,
+        child: Table(
+          defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+          children: List<TableRow>.generate(
+            recentHistory.length,
             (int index) => TableRow(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
               ),
-              children: [
+              children: <Widget>[
                 Container(
                   alignment: Alignment.centerLeft,
                   padding: const EdgeInsets.only(top: 10.0, bottom: 10.0, left: 20.0),
                   child: CircleAvatar(
                     radius: 17,
-                    backgroundImage: NetworkImage(transactionHistory[index]['avatar']!),
+                    backgroundImage: NetworkImage(recentHistory[index]['avatar']!),
                   ),
                 ),
                 PrimaryText(
-                  text: transactionHistory[index]['label'],
+                  text: recentHistory[index]['student_name'],
                   size: 16,
                   color: Palette.secondary,
                 ),
                 PrimaryText(
-                  text: transactionHistory[index]['time'],
+                  text: recentHistory[index]['time'],
                   size: 16,
                   color: Palette.secondary,
                 ),
                 PrimaryText(
-                  text: transactionHistory[index]['amount'],
+                  text: recentHistory[index]['task'],
                   size: 16,
                   color: Palette.secondary,
                 ),
                 PrimaryText(
-                  text: transactionHistory[index]['status'],
+                  text: recentHistory[index]['status'],
                   size: 16,
                   color: Palette.secondary,
                 ),
               ],
             ),
+          ),
         ),
       ),
-          ),
     );
   }
 }

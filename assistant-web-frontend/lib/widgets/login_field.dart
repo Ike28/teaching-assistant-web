@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../pallete.dart';
+import '../style/palette.dart';
 
 class LoginField extends StatelessWidget {
-  const LoginField({
-    super.key,
-    required this.hintText,
-    required this.obscure
-  });
+  const LoginField({super.key, required this.hintText, required this.obscure});
   final String hintText;
   final bool obscure;
 
@@ -21,24 +17,23 @@ class LoginField extends StatelessWidget {
         style: const TextStyle(color: Colors.white),
         obscureText: obscure,
         decoration: InputDecoration(
-          contentPadding: const EdgeInsets.all(27),
-          enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Palette.borderColor,
-              width: 3,
+            contentPadding: const EdgeInsets.all(27),
+            enabledBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: Palette.borderColor,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(10),
             ),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(
-              color: Palette.gradient2,
-              width: 3,
+            focusedBorder: OutlineInputBorder(
+              borderSide: const BorderSide(
+                color: Palette.gradient2,
+                width: 3,
+              ),
+              borderRadius: BorderRadius.circular(10),
             ),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          hintText: hintText,
-          hintStyle: const TextStyle(color: Colors.white)
-        ),
+            hintText: hintText,
+            hintStyle: const TextStyle(color: Colors.white)),
       ),
     );
   }

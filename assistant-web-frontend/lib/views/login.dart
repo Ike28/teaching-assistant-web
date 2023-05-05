@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
+import '../model/user.dart';
 import 'dashboard.dart';
 import 'register.dart';
-import 'user.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});

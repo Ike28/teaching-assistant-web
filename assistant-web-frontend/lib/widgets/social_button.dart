@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../pallete.dart';
+import '../style/palette.dart';
 
 class SocialButton extends StatelessWidget {
   const SocialButton({

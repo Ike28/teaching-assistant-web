@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'pallete.dart';
-import 'widgets/gradient_button.dart';
-import 'widgets/login_field.dart';
-import 'widgets/social_button.dart';
+import '../style/palette.dart';
+import '../widgets/gradient_button.dart';
+import '../widgets/login_field.dart';
+import '../widgets/social_button.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,11 +20,7 @@ class LoginScreen extends StatelessWidget {
                 Image.asset('assets/img/sign_in.png'),
                 const Text(
                   'Bun venit',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 50,
-                    color: Palette.whiteColor
-                  ),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50, color: Palette.whiteColor),
                 ),
                 const SizedBox(height: 50),
                 const SocialButton(iconPath: 'assets/svg/g_logo.svg', label: 'Continuă cu GitHub'),

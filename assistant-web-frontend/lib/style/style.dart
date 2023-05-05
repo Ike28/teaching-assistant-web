@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../pallete.dart';
+import 'palette.dart';
 
 class PrimaryText extends StatelessWidget {
-
-  const PrimaryText({super.key,
+  const PrimaryText({
+    super.key,
     required this.text,
     this.fontWeight = FontWeight.w400,
     this.color = Palette.backgroundColor,
@@ -19,13 +19,15 @@ class PrimaryText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text!,
-        style: TextStyle(
-          color: color,
-          height: height,
-          fontFamily: 'Poppins',
-          fontSize: size,
-          fontWeight: fontWeight,
-        ),);
+    return Text(
+      text!,
+      style: TextStyle(
+        color: color,
+        height: height,
+        fontFamily: 'Poppins',
+        fontSize: size,
+        fontWeight: fontWeight,
+      ),
+    );
   }
 }
