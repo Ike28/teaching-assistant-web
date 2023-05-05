@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: Get code
         uses: actions/checkout@v3
-        working-directory: ./assistant-web-frontend
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
