@@ -26,7 +26,7 @@ class _LoginState extends State<Login> {
         headers: <String, String>{'Content-Type': 'application/json'},
         body: json.encode(<String, String>{'email': user.email, 'password': user.password}));
     // ignore: use_build_context_synchronously
-    Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => const Dashboard()));
+    Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => Dashboard()));
   }
 
   @override
