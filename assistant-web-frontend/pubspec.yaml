@@ -13,6 +13,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   http: ^0.13.6
   google_fonts: ^4.0.4
+  flutter_svg: ^1.1.6
+  fl_chart: ^0.35.0
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +24,14 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/img/sign_in.png
+    - assets/svg/
+    - assets/
+  fonts:
+    - family: Poppins
+      fonts:
+        - asset: fonts/Poppins-Regular.ttf
+        - asset: fonts/Poppins-Medium.ttf
+        - asset: fonts/Poppins-SemiBold.ttf
+        - asset: fonts/Poppins-Bold.ttf
