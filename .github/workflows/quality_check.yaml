@@ -13,7 +13,6 @@ jobs:
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
-        working-directory: ./assistant-web-frontend
 
       - name: Check format
         working-directory: ./assistant-web-frontend
