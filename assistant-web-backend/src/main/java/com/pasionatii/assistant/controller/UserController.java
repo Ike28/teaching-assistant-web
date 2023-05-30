@@ -19,6 +19,6 @@ public class UserController {
 
     @PostMapping("/login")
     public User login(@RequestBody User existingUser) {
-        return userRepository.findByEmailAndPasswordToken(existingUser.getEmail(), existingUser.getPasswordToken());
+        return userRepository.findByEmailAndPasswordToken(existingUser.getEmail(), existingUser.getPassword());
     }
 }

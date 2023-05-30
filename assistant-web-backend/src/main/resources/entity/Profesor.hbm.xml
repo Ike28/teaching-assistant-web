@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <joined-subclass name="com.pasionatii.assistant.entity.Profesor" extends="com.pasionatii.assistant.entity.User">
+        <key column="id" />
+        <property name="firstname" column="firstname" type="string" />
+        <property name="lastname" column="lastname" type="string" />
+
+    </joined-subclass>
+</hibernate-mapping>

@@ -1,6 +1,8 @@
 package com.pasionatii.assistant;
 
-import org.springframework.boot.SpringApplication;
+import com.pasionatii.assistant.repository.Implementation.RepoUser;
+import com.pasionatii.assistant.repository.SessionFactoryProvider;
+import org.hibernate.SessionFactory;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
@@ -8,8 +10,14 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin
 public class AssistantApplication {
 
+	//public static void main(String[] args) {SpringApplication.run(AssistantApplication.class, args);	}
 	public static void main(String[] args) {
-		SpringApplication.run(AssistantApplication.class, args);
+		SessionFactoryProvider sessionFactoryProvider=new SessionFactoryProvider();
+		SessionFactory sessionFactory=sessionFactoryProvider.getSessionFactory();
+		RepoUser repoProfesor=new RepoUser(sessionFactory);
+
+		repoProfesor.findAll();
+		return;
 	}
 
 }

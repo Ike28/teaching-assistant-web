@@ -1,22 +1,27 @@
 package com.pasionatii.assistant.entity;
 
-import jakarta.persistence.Entity;
-import lombok.Data;
+import jakarta.persistence.*;
+
+import java.util.Objects;
 
 @Entity
-@Data
-public class Student extends User<Long>{
+@Table(name = "student")
+@PrimaryKeyJoinColumn(name = "id")
+public class Student extends User {
     
     private String firstName;
     private String lastName;
-    private int classNr;
-    private String classType;
+    @ManyToOne
+    @JoinColumn(name = "id_class")
+    private Class className;
+    public Student() {
 
-    public Prof(String firstName, String lastName, int classNr, String classType){
+    }
+
+    public Student(String firstName, String lastName, Class className) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.classNr = classNr;
-        this.classType = classType;
+        this.className = className;
     }
 
     public String getFirstName() {
@@ -35,33 +40,18 @@ public class Student extends User<Long>{
         this.lastName = newName;
     }
 
-    public int getClassNr() {
-        return classNr;
-    }
-
-    public void setClassNr(int newNr) {
-        this.classNr = newNr;
-    }
-
-    public String getClassType() {
-        return classType;
-    }
-
-    public void setClassType(String newType) {
-        this.classType = newType;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student that = (Student) o;
-        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName) && classNr == that.classNr && Objects.equals(classType, that.classType);
+        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName)  && Objects.equals(className, that.className);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, classNr, classType);
+        return Objects.hash(firstName, lastName, className);
     }
 
 
