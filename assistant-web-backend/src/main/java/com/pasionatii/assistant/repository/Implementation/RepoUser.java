@@ -2,16 +2,19 @@ package com.pasionatii.assistant.repository.Implementation;
 
 import com.pasionatii.assistant.entity.User;
 import com.pasionatii.assistant.repository.Interface.Repository;
+import com.pasionatii.assistant.repository.SessionFactoryProvider;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.context.annotation.Bean;
 
 public class RepoUser implements Repository<User> {
 
     private final SessionFactory sessionFactory;
 
     public RepoUser(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+        SessionFactoryProvider sessionFactoryProvider=new SessionFactoryProvider();
+         this.sessionFactory=sessionFactoryProvider.getSessionFactory();
     }
 
     @Override
@@ -64,7 +67,7 @@ public class RepoUser implements Repository<User> {
     @Override
     public Iterable<User> findAll() {
         try (Session session = sessionFactory.openSession()) {
-            Query<User> query = session.createQuery("FROM User", User.class);
+            Query<User> query = session.createQuery("FROM  User", com.pasionatii.assistant.entity.User.class);
             return query.list();
         } catch (Exception e) {
             e.printStackTrace();

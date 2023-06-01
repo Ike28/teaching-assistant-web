@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.pasionatii.assistant.entity">
+
+    <class name="GradeQuiz" table="gradequiz">
+        <id name="id" column="id">
+            <generator class="identity"/>
+        </id>
+
+        <many-to-one name="student" column="id_student" not-null="false" cascade="all"/>
+        <many-to-one name="quiz" column="id_quiz" not-null="false" cascade="all"/>
+
+        <property name="grade" column="grade" type="int"/>
+
+    </class>
+
+</hibernate-mapping>

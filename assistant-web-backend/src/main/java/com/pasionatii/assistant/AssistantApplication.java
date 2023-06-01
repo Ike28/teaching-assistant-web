@@ -1,23 +1,18 @@
 package com.pasionatii.assistant;
 
-import com.pasionatii.assistant.repository.Implementation.RepoUser;
-import com.pasionatii.assistant.repository.SessionFactoryProvider;
-import org.hibernate.SessionFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
 @CrossOrigin
+@EntityScan(basePackages = "com.pasionatii.assistant.entity")
+
 public class AssistantApplication {
 
-	//public static void main(String[] args) {SpringApplication.run(AssistantApplication.class, args);	}
 	public static void main(String[] args) {
-		SessionFactoryProvider sessionFactoryProvider=new SessionFactoryProvider();
-		SessionFactory sessionFactory=sessionFactoryProvider.getSessionFactory();
-		RepoUser repoProfesor=new RepoUser(sessionFactory);
+		SpringApplication.run(AssistantApplication.class, args);	}
 
-		repoProfesor.findAll();
-		return;
-	}
 
 }

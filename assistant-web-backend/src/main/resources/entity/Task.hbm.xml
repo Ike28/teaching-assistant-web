@@ -3,12 +3,12 @@
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.pasionatii.assistant.entity">
-    <class name="User" table="user">
+    <class name="Task" table="task">
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <property name="email" column="email"/>
-        <property name="password" column="password"/>
-        <property name="username" column="username"/>
+        <many-to-one name="assignment" column="id_assignment"/>
+        <property name="text" column="text"/>
+        <property name="file" column="file" type="binary"/>
     </class>
 </hibernate-mapping>

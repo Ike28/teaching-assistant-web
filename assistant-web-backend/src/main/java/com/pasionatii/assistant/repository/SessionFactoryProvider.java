@@ -1,6 +1,8 @@
 package com.pasionatii.assistant.repository;
+
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.springframework.context.annotation.Bean;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -10,7 +12,7 @@ public class SessionFactoryProvider {
 
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFactory() {
+    public  SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             buildSessionFactory();
         }
@@ -20,7 +22,7 @@ public class SessionFactoryProvider {
     private static void buildSessionFactory() {
         try {
             Properties properties = new Properties();
-            try (InputStream inputStream = SessionFactoryProvider.class.getClassLoader().getResourceAsStream("application.properties")) {
+            try (InputStream inputStream = SessionFactoryProvider.class.getClassLoader().getResourceAsStream("db.properties")) {
                 properties.load(inputStream);
             } catch (IOException e) {
                 e.printStackTrace();

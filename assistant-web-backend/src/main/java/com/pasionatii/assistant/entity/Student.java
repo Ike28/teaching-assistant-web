@@ -1,58 +1,40 @@
 package com.pasionatii.assistant.entity;
 
-import jakarta.persistence.*;
 
-import java.util.Objects;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "student")
 @PrimaryKeyJoinColumn(name = "id")
 public class Student extends User {
-    
-    private String firstName;
-    private String lastName;
+    private String firstname;
+    private String lastname;
+
+    public Student(String firstname, String lastname, Class aClass) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.aClass = aClass;
+    }
+
     @ManyToOne
     @JoinColumn(name = "id_class")
-    private Class className;
+    private Class aClass;
     public Student() {
-
     }
 
-    public Student(String firstName, String lastName, Class className) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.className = className;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public void setFirstName(String newName) {
-        this.firstName = newName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
-
-    public void setLastName(String newName) {
-        this.lastName = newName;
-    }
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Student that = (Student) o;
-        return Objects.equals(firstName, that.firstName) && Objects.equals(lastName, that.lastName)  && Objects.equals(className, that.className);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(firstName, lastName, className);
-    }
-
-
 }

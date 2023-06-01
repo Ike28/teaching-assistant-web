@@ -1,14 +1,25 @@
 package com.pasionatii.assistant.entity;
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "class")
-public class Class {
+@Table(name = "subject")
+public class Subject {
     @Id
     @Column(name = "id")
     private int id;
+
+    @Column(name = "name")
+    private String name;
+
+    public Subject() {
+    }
+
+    public Subject(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 
     public int getId() {
         return id;
@@ -18,8 +29,6 @@ public class Class {
         this.id = id;
     }
 
-    private String name;
-
     public String getName() {
         return name;
     }
@@ -27,13 +36,5 @@ public class Class {
     public void setName(String name) {
         this.name = name;
     }
-
-
-    public Class() {
-    }
-
-    public Class(String name) {
-        this.name = name;
-    }
-
 }
+

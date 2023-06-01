@@ -1,14 +1,12 @@
 package com.pasionatii.assistant.entity;
 
-import jakarta.persistence.Inheritance;
-
 import jakarta.persistence.*;
 
 
 
 @Entity
 @Table(name = "user")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
