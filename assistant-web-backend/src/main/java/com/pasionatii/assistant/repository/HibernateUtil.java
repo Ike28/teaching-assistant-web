@@ -11,18 +11,13 @@ public class HibernateUtil {
 
     static {
         try {
-            // Create a Configuration instance and load the hibernate.cfg.xml file
             Configuration configuration = new Configuration().configure();
 
-            // Build the StandardServiceRegistry using the Configuration
             StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                     .applySettings(configuration.getProperties())
                     .build();
-
-            // Build the SessionFactory using the StandardServiceRegistry
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         } catch (Throwable ex) {
-            // Handle any exceptions
             throw new ExceptionInInitializerError(ex);
         }
     }
