@@ -9,5 +9,5 @@ import java.util.List;
 
 @Component
 public interface IStudentRepository extends JpaRepository<Student, Long> {
-    List<Student> findStudentsByAssignedClass(Class assignedClass);
+    List<Student> findStudentsByAssignedClass_Id(Long classId);
 }

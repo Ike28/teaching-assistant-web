@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Course {
     @Id
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_profesor")
@@ -24,19 +24,11 @@ public class Course {
     public Course() {
     }
 
-    public Course(int id, Profesor professor, Class courseClass, Subject subject) {
-        this.id = id;
-        this.professor = professor;
-        this.courseClass = courseClass;
-        this.subject = subject;
-    }
-
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -17,15 +17,8 @@ public class Post {
     @JoinColumn(name = "id_course")
     private Course course;
 
-
     public Post() {
     }
-
-    public Post(String text, Course course) {
-        this.text = text;
-        this.course = course;
-    }
-
 
     public Long getId() {
         return id;

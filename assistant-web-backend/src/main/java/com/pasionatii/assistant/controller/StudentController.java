@@ -13,53 +13,37 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/assistant/classes/{idClass}/students")
+@RequestMapping("/assistant/students")
 public class StudentController {
     @Autowired
     private IClassRepository classRepository;
     @Autowired
     private IStudentRepository studentRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
     public ResponseEntity<?> getAllByClass(@PathVariable String idClass) {
-        Optional<Class> foundClass = classRepository.findById(Long.parseLong(idClass));
-        if (foundClass.isEmpty()) {
-            return new ResponseEntity<>("Class not found!", HttpStatus.NOT_FOUND);
-        } else {
-            Class assignedClass = foundClass.get();
-            return new ResponseEntity<>(studentRepository.findStudentsByAssignedClass(assignedClass), HttpStatus.OK);
-        }
+        return new ResponseEntity<>(studentRepository.findStudentsByAssignedClass_Id(Long.parseLong(idClass)), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}/assignments", method = RequestMethod.GET)
     public ResponseEntity<?> getAssignmentsForStudent(@PathVariable String idClass, @PathVariable String id) {
-        Optional<Class> foundClass = classRepository.findById(Long.parseLong(idClass));
-        if (foundClass.isEmpty()) {
-            return new ResponseEntity<>("Class not found!", HttpStatus.NOT_FOUND);
+        Optional<Student> student = studentRepository.findById(Long.parseLong(id));
+        if (student.isEmpty()) {
+            return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
         } else {
-            Optional<Student> student = studentRepository.findById(Long.parseLong(id));
-            if (student.isEmpty()) {
-                return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
-            } else {
-                Student found = student.get();
-                return new ResponseEntity<>(found.getAssignmentStatuses(), HttpStatus.OK);
-            }
+            Student found = student.get();
+            return new ResponseEntity<>(found.getAssignmentStatuses(), HttpStatus.OK);
         }
     }
 
     @RequestMapping(value = "/{id}/grades", method = RequestMethod.GET)
     public ResponseEntity<?> getAssignmentGradesForStudent(@PathVariable String idClass, @PathVariable String id) {
-        Optional<Class> foundClass = classRepository.findById(Long.parseLong(idClass));
-        if (foundClass.isEmpty()) {
-            return new ResponseEntity<>("Class not found!", HttpStatus.NOT_FOUND);
+        Optional<Student> student = studentRepository.findById(Long.parseLong(id));
+        if (student.isEmpty()) {
+            return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
         } else {
-            Optional<Student> student = studentRepository.findById(Long.parseLong(id));
-            if (student.isEmpty()) {
-                return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
-            } else {
-                Student found = student.get();
-                return new ResponseEntity<>(found.getGrades(), HttpStatus.OK);
-            }
+            Student found = student.get();
+            return new ResponseEntity<>(found.getGrades(), HttpStatus.OK);
         }
     }
 }
