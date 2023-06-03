@@ -21,16 +21,8 @@ public class Quiz {
     @JoinColumn(name = "id_course")
     private Course course;
 
-
     public Quiz() {
     }
-
-    public Quiz(String title, LocalDateTime doDate, Course course) {
-        this.title = title;
-        this.doDate = doDate;
-        this.course = course;
-    }
-
 
     public Long getId() {
         return id;
