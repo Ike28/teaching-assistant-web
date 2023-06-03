@@ -20,7 +20,7 @@ class NavBarActionItems extends StatelessWidget {
         const SizedBox(width: 10),
         IconButton(icon: SvgPicture.asset('assets/ring.svg', width: 20.0), onPressed: () {}),
         const SizedBox(width: 15),
-        Row(children: const <Widget>[
+        const Row(children: <Widget>[
           CircleAvatar(
             radius: 17,
             backgroundImage: NetworkImage(

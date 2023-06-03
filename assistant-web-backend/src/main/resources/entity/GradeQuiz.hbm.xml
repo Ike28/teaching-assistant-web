@@ -3,17 +3,8 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.pasionatii.assistant.entity">
-
-    <class name="GradeQuiz" table="gradequiz">
-        <id name="id" column="id">
-            <generator class="identity"/>
-        </id>
-
-        <many-to-one name="student" column="id_student" not-null="false" cascade="all"/>
-        <many-to-one name="quiz" column="id_quiz" not-null="false" cascade="all"/>
-
-        <property name="grade" column="grade" type="int"/>
-
-    </class>
-
+    <joined-subclass name="com.pasionatii.assistant.entity.GradeQuiz" extends="com.pasionatii.assistant.entity.Grade">
+        <key column="id" />
+        <many-to-one name="quiz" class="com.pasionatii.assistant.entity.Quiz" column="id_quiz"/>
+    </joined-subclass>
 </hibernate-mapping>

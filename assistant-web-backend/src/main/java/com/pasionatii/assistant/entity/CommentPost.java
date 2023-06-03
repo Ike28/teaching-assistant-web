@@ -8,7 +8,7 @@ public class CommentPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_post")
@@ -23,19 +23,14 @@ public class CommentPost {
 
 
     public CommentPost() {
+
     }
 
-    public CommentPost(Post post, User user, String text) {
-        this.post = post;
-        this.user = user;
-        this.text = text;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

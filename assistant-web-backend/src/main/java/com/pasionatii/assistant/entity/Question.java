@@ -8,7 +8,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_quiz")
@@ -29,29 +29,15 @@ public class Question {
     @Column(name = "responseCorrect")
     private String responseCorrect;
 
-    // Constructors, getters, and setters for all the fields
-
-    // No-argument constructor
     public Question() {
+
     }
 
-    // Constructor with all fields
-    public Question(Quiz quiz, String text, String response1, String response2, String response3, String responseCorrect) {
-        this.quiz = quiz;
-        this.text = text;
-        this.response1 = response1;
-        this.response2 = response2;
-        this.response3 = response3;
-        this.responseCorrect = responseCorrect;
-    }
-
-    // Getters and setters for all fields
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

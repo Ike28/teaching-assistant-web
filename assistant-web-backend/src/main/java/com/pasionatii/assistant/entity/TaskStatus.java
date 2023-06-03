@@ -4,15 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "studenttask")
-public class StudentTask {
+public class TaskStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
-
-    @ManyToOne
-    @JoinColumn(name = "id_student")
-    private Student student;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_task")
@@ -21,30 +17,25 @@ public class StudentTask {
     @Column(name = "status")
     private Status status;
 
-    public StudentTask() {
+    @ManyToOne
+    @JoinColumn(name = "id_assignment")
+    private AssignmentStatus assignmentStatus;
+
+    public TaskStatus() {
     }
 
-    public StudentTask(Student student, Task task, Status status) {
-        this.student = student;
+    public TaskStatus(Task task, Status status) {
         this.task = task;
         this.status = status;
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 
     public Task getTask() {
@@ -61,5 +52,13 @@ public class StudentTask {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public AssignmentStatus getAssignmentStatus() {
+        return assignmentStatus;
+    }
+
+    public void setAssignmentStatus(AssignmentStatus assignmentStatus) {
+        this.assignmentStatus = assignmentStatus;
     }
 }

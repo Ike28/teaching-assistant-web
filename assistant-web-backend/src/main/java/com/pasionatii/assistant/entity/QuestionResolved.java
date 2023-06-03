@@ -8,7 +8,7 @@ public class QuestionResolved {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "id_student")
@@ -22,6 +22,7 @@ public class QuestionResolved {
     private boolean correct;
 
     public QuestionResolved() {
+
     }
 
     public QuestionResolved(Student student, Question question, boolean correct) {
@@ -31,11 +32,11 @@ public class QuestionResolved {
     }
 
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

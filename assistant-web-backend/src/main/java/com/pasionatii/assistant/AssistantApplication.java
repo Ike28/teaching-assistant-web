@@ -8,10 +8,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-@CrossOrigin
 @EntityScan(basePackages = "com.pasionatii.assistant.entity")
 @ComponentScan("com.pasionatii.assistant.repository")
-
+@CrossOrigin
 public class AssistantApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AssistantApplication.class, args);

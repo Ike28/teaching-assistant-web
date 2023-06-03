@@ -29,9 +29,9 @@ class StudentPerformanceDetails extends StatelessWidget {
       SizedBox(
         height: SizeConfig.blockSizeVertical * 5,
       ),
-      Column(
+      const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <PrimaryText>[
+        children: <PrimaryText>[
           PrimaryText(text: 'Rezolvate', size: 18, fontWeight: FontWeight.w800),
           PrimaryText(
             text: '',
@@ -55,9 +55,9 @@ class StudentPerformanceDetails extends StatelessWidget {
       SizedBox(
         height: SizeConfig.blockSizeVertical * 5,
       ),
-      Column(
+      const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const <PrimaryText>[
+        children: <PrimaryText>[
           PrimaryText(text: 'De rezolvat', size: 18, fontWeight: FontWeight.w800),
           PrimaryText(
             text: '',

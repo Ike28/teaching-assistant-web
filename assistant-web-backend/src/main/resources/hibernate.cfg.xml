@@ -8,28 +8,24 @@
         <property name="hibernate.connection.url">jdbc:mysql://pasionatiitest.mysql.database.azure.com:3306/teaching_assistant?serverTimezone=UTC</property>
         <property name="hibernate.connection.username">user</property>
         <property name="hibernate.connection.password">Pas12345</property>
-
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
-
         <property name="hibernate.connection.pool_size">5</property>
-
         <property name="hibernate.current_session_context_class">thread</property>
 
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
 
         <mapping class="com.pasionatii.assistant.entity.Profesor"/>
-<!--        <mapping class="com.pasionatii.assistant.entity.User"/>-->
-
         <mapping class="com.pasionatii.assistant.entity.User"/>
         <mapping class="com.pasionatii.assistant.entity.Task"/>
-        <mapping class="com.pasionatii.assistant.entity.StudentTask"/>
+        <mapping class="com.pasionatii.assistant.entity.TaskStatus"/>
         <mapping class="com.pasionatii.assistant.entity.Student"/>
         <mapping class="com.pasionatii.assistant.entity.Subject"/>
         <mapping class="com.pasionatii.assistant.entity.Question"/>
         <mapping class="com.pasionatii.assistant.entity.QuestionResolved"/>
         <mapping class="com.pasionatii.assistant.entity.Post"/>
         <mapping class="com.pasionatii.assistant.entity.Quiz"/>
+        <mapping class="com.pasionatii.assistant.entity.Grade"/>
         <mapping class="com.pasionatii.assistant.entity.GradeQuiz"/>
         <mapping class="com.pasionatii.assistant.entity.GradeAssignment"/>
         <mapping class="com.pasionatii.assistant.entity.Course"/>
@@ -37,11 +33,13 @@
         <mapping class="com.pasionatii.assistant.entity.Class"/>
         <mapping class="com.pasionatii.assistant.entity.Assignment"/>
         <mapping class="com.pasionatii.assistant.entity.Admin"/>
+        <mapping class="com.pasionatii.assistant.entity.AssignmentStatus"/>
         <mapping resource="entity/Admin.hbm.xml"/>
-        <mapping resource="entity/Assignment .hbm.xml"/>
+        <mapping resource="entity/Assignment.hbm.xml"/>
         <mapping resource="entity/Class.hbm.xml"/>
         <mapping resource="entity/CommentPost.hbm.xml"/>
         <mapping resource="entity/Course.hbm.xml"/>
+        <mapping resource="entity/Grade.hbm.xml"/>
         <mapping resource="entity/GradeAssignment.hbm.xml"/>
         <mapping resource="entity/GradeQuiz.hbm.xml"/>
         <mapping resource="entity/Post.hbm.xml"/>
@@ -51,8 +49,9 @@
         <mapping resource="entity/Quiz.hbm.xml"/>
         <mapping resource="entity/Student.hbm.xml"/>
         <mapping resource="entity/Subject.hbm.xml"/>
-        <mapping resource="entity/SubjectTask.hbm.xml"/>
+        <mapping resource="entity/TaskStatus.xml"/>
         <mapping resource="entity/Task.hbm.xml"/>
         <mapping resource="entity/User.hbm.xml"/>
+        <mapping resource="entity/AssignmentStatus.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

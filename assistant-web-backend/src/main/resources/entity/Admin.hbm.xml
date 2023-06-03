@@ -3,7 +3,5 @@
 <hibernate-mapping package="com.pasionatii.assistant.entity">
     <joined-subclass name="com.pasionatii.assistant.entity.Admin" extends="com.pasionatii.assistant.entity.User">
         <key column="id" />
-
-
     </joined-subclass>
 </hibernate-mapping>

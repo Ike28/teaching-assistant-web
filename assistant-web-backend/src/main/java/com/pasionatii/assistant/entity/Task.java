@@ -1,6 +1,7 @@
 package com.pasionatii.assistant.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "task")
@@ -20,6 +21,9 @@ public class Task {
     //save files??
     @Column(name = "file")
     private byte[] file;
+
+    @OneToMany(mappedBy = "task")
+    private Set<TaskStatus> taskStatuses;
 
     public Task() {
     }
@@ -61,5 +65,13 @@ public class Task {
 
     public void setFile(byte[] file) {
         this.file = file;
+    }
+
+    public Set<TaskStatus> getTaskStatuses() {
+        return taskStatuses;
+    }
+
+    public void setTaskStatuses(Set<TaskStatus> taskStatuses) {
+        this.taskStatuses = taskStatuses;
     }
 }
