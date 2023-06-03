@@ -75,7 +75,7 @@ class TeacherDashboard extends StatelessWidget {
                           ),
                         ),
                         SizedBox(
-                          height: SizeConfig.blockSizeVertical * 4,
+                          height: SizeC0.onfig.blockSizeVertical * 4,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
