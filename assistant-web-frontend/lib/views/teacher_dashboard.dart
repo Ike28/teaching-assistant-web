@@ -62,11 +62,11 @@ class TeacherDashboard extends StatelessWidget {
                         ),
                         SizedBox(
                           width: SizeConfig.screenWidth,
-                          child: Wrap(
+                          child: const Wrap(
                             spacing: 20,
                             runSpacing: 20,
                             alignment: WrapAlignment.spaceBetween,
-                            children: const <InfoCard>[
+                            children: <InfoCard>[
                               InfoCard(icon: 'assets/credit-card.svg', label: 'Gestiune clasă', amount: r'>'),
                               InfoCard(icon: 'assets/transfer.svg', label: 'Modifică teme', amount: r'>'),
                               InfoCard(icon: 'assets/bank.svg', label: 'Adaugă teme', amount: r'>'),
@@ -77,12 +77,12 @@ class TeacherDashboard extends StatelessWidget {
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 4,
                         ),
-                        Row(
+                        const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const <PrimaryText>[
+                              children: <PrimaryText>[
                                 PrimaryText(
                                   text: '',
                                   size: 16,
@@ -91,7 +91,7 @@ class TeacherDashboard extends StatelessWidget {
                                 PrimaryText(text: 'Progres teme', size: 30, fontWeight: FontWeight.w800),
                               ],
                             ),
-                            const PrimaryText(
+                            PrimaryText(
                               text: '',
                               size: 16,
                               color: Palette.secondary,
@@ -108,9 +108,9 @@ class TeacherDashboard extends StatelessWidget {
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 5,
                         ),
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const <PrimaryText>[
+                          children: <PrimaryText>[
                             PrimaryText(text: 'Activități recente', size: 30, fontWeight: FontWeight.w800),
                             PrimaryText(
                               text: '',
@@ -136,10 +136,10 @@ class TeacherDashboard extends StatelessWidget {
                     width: double.infinity,
                     height: SizeConfig.screenHeight,
                     decoration: const BoxDecoration(color: Palette.gradient1),
-                    child: SingleChildScrollView(
-                      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                    child: const SingleChildScrollView(
+                      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
                       child: Column(
-                        children: const <Widget>[
+                        children: <Widget>[
                           NavBarActionItems(),
                           StudentPerformanceDetails(),
                         ],

@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Subject {
     @Id
     @Column(name = "id")
-    private int id;
+    private Long id;
 
     @Column(name = "name")
     private String name;
@@ -15,17 +15,11 @@ public class Subject {
     public Subject() {
     }
 
-    public Subject(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

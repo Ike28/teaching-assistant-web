@@ -2,23 +2,35 @@ package com.pasionatii.assistant.entity;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "class")
 public class Class {
     @Id
     @Column(name = "id")
-    private int id;
+    private Long id;
 
-    public int getId() {
+    @OneToMany(mappedBy = "assignedClass")
+    private Set<Assignment> assignments;
+    @OneToMany(mappedBy = "assignedClass")
+    private Set<Student> students;
+    private String name;
+
+    public Class() {
+    }
+
+    public Class(String name) {
+        this.name = name;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
-
-    private String name;
 
     public String getName() {
         return name;
@@ -28,12 +40,19 @@ public class Class {
         this.name = name;
     }
 
-
-    public Class() {
+    public Set<Assignment> getAssignments() {
+        return assignments;
     }
 
-    public Class(String name) {
-        this.name = name;
+    public void setAssignments(Set<Assignment> assignments) {
+        this.assignments = assignments;
     }
 
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
 }

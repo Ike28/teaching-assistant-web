@@ -10,8 +10,8 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      SizedBox(
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: const <PrimaryText>[
+      const SizedBox(
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <PrimaryText>[
           PrimaryText(text: 'Clasa IX B', size: 30, fontWeight: FontWeight.w800),
           PrimaryText(
             text: '',
