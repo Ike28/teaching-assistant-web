@@ -15,7 +15,7 @@ jobs:
 
       - name: Check format
         working-directory: ./assistant-web-frontend
-        run: flutter format --line-length 120 --set-exit-if-changed ./assistant-web-frontend/lib
+        run: dart format --line-length 120 --set-exit-if-changed ./assistant-web-frontend/lib
 
       - name: Analyze code
         working-directory: ./assistant-web-frontend
