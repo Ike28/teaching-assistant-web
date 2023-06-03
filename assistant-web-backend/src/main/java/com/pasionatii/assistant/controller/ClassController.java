@@ -30,4 +30,9 @@ public class ClassController {
             return new ResponseEntity<>(found.get(), HttpStatus.OK);
         }
     }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Class create(@RequestBody Class newClass) {
+        return classRepository.save(newClass);
+    }
 }
