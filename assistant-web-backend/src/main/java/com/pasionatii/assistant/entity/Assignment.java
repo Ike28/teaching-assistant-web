@@ -1,6 +1,7 @@
 package com.pasionatii.assistant.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -24,7 +25,7 @@ public class Assignment {
     private Class assignedClass;
 
     @Column(name = "doDate")
-    private LocalDateTime doDate;
+    private LocalDateTime dueDate;
 
     @Column(name = "text")
     private String text;
@@ -35,10 +36,10 @@ public class Assignment {
     }
 
     // Constructor with all fields
-    public Assignment(Course course, Class assignedClass, LocalDateTime doDate, String text) {
+    public Assignment(Course course, Class assignedClass, LocalDateTime dueDate, String text) {
         this.course = course;
         this.assignedClass = assignedClass;
-        this.doDate = doDate;
+        this.dueDate = dueDate;
         this.text = text;
     }
 
@@ -60,12 +61,12 @@ public class Assignment {
         this.course = course;
     }
 
-    public LocalDateTime getDoDate() {
-        return doDate;
+    public LocalDateTime getDueDate() {
+        return dueDate;
     }
 
-    public void setDoDate(LocalDateTime doDate) {
-        this.doDate = doDate;
+    public void setDueDate(LocalDateTime doDate) {
+        this.dueDate = doDate;
     }
 
     public String getText() {

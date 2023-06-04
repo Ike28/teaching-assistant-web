@@ -1,6 +1,6 @@
 package com.pasionatii.assistant.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "questionresolved")
@@ -24,13 +24,6 @@ public class QuestionResolved {
     public QuestionResolved() {
 
     }
-
-    public QuestionResolved(Student student, Question question, boolean correct) {
-        this.student = student;
-        this.question = question;
-        this.correct = correct;
-    }
-
 
     public Long getId() {
         return id;
