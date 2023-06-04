@@ -21,4 +21,4 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Build with Maven
         working-directory: ./assistant-web-backend
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots compile
