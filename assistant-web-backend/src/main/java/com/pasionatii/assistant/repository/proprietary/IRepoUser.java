@@ -1,4 +1,4 @@
-package com.pasionatii.assistant.repository.Interface;
+package com.pasionatii.assistant.repository.proprietary;
 
 import com.pasionatii.assistant.entity.User;
 
