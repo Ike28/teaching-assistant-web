@@ -2,11 +2,11 @@ package com.pasionatii.assistant.repository;
 
 import com.pasionatii.assistant.entity.Assignment;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Component
+@Repository
 public interface IAssignmentRepository extends JpaRepository<Assignment, Long> {
     List<Assignment> findAssignmentsByAssignedClass_Id(Long classId);
 

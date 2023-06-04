@@ -1,6 +1,6 @@
 package com.pasionatii.assistant.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "studenttask")
@@ -23,12 +23,6 @@ public class TaskStatus {
 
     public TaskStatus() {
     }
-
-    public TaskStatus(Task task, Status status) {
-        this.task = task;
-        this.status = status;
-    }
-
 
     public Long getId() {
         return id;

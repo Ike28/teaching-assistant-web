@@ -7,7 +7,7 @@
         </id>
         <many-to-one name="course" class="Course" column="id_course"/>
         <many-to-one name="assignedClass" class="Class" column="id_class" />
-        <property name="doDate" column="doDate" type="java.time.LocalDateTime"/>
+        <property name="getDueDate" column="doDate" type="java.time.LocalDateTime"/>
         <property name="text" column="text" type="string"/>
         <set name="assignmentStatuses" table="assignmentstatus" inverse="true" cascade="save-update" lazy="true" fetch="select">
             <key>

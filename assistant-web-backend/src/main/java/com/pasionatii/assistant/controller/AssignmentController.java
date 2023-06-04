@@ -4,6 +4,7 @@ import com.pasionatii.assistant.entity.Assignment;
 import com.pasionatii.assistant.entity.Task;
 import com.pasionatii.assistant.repository.IAssignmentRepository;
 import com.pasionatii.assistant.repository.ITaskRepository;
+import com.pasionatii.assistant.service.AssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,26 +17,26 @@ import java.util.Optional;
 @RequestMapping("/assistant/assignments")
 public class AssignmentController {
     @Autowired
-    private IAssignmentRepository assignmentRepository;
+    private AssignmentService assignmentService;
     @Autowired
     private ITaskRepository taskRepository;
 
     @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
     public ResponseEntity<?> getAssignmentsByClass(@PathVariable String idClass) {
         return new ResponseEntity<>(
-                assignmentRepository.findAssignmentsByAssignedClass_Id(Long.parseLong(idClass)),
+                assignmentService.findAssignmentsByAssignedClass_Id(Long.parseLong(idClass)),
                 HttpStatus.OK);
     }
 
     @RequestMapping(value = "?course-id={idCourse}", method = RequestMethod.GET)
     public ResponseEntity<?> getAssignmentsByCourse(@PathVariable String idCourse) {
         return new ResponseEntity<>(
-                assignmentRepository.findAssignmentsByCourse_Id(Long.parseLong(idCourse)), HttpStatus.OK);
+                assignmentService.findAssignmentsByCourse_Id(Long.parseLong(idCourse)), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}/tasks", method = RequestMethod.GET)
     public ResponseEntity<?> getTasksByAssignment(@PathVariable String id) {
-        Optional<Assignment> found = assignmentRepository.findById(Long.parseLong(id));
+        Optional<Assignment> found = assignmentService.findById(Long.parseLong(id));
         if (found.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
@@ -45,11 +46,14 @@ public class AssignmentController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<?> createAssignment(@RequestBody Assignment assignment) {
-        return new ResponseEntity<>(assignmentRepository.save(assignment), HttpStatus.CREATED);
+        return new ResponseEntity<>(assignmentService.save(assignment), HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> createTask(@RequestBody Task task) {
+    @RequestMapping(value = "/{id}/tasks", method = RequestMethod.POST)
+    public ResponseEntity<?> createTask(@PathVariable String id, @RequestBody Task task) {
+        if (!task.getAssignment().getId().toString().equals(id)) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
         return new ResponseEntity<>(taskRepository.save(task), HttpStatus.CREATED);
     }
 }

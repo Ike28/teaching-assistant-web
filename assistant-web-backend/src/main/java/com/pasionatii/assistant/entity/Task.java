@@ -1,6 +1,6 @@
 package com.pasionatii.assistant.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -27,13 +27,6 @@ public class Task {
 
     public Task() {
     }
-
-    public Task(Assignment assignment, String text, byte[] file) {
-        this.assignment = assignment;
-        this.text = text;
-        this.file = file;
-    }
-
 
     public int getId() {
         return id;

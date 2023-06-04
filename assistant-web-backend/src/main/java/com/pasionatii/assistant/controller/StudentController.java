@@ -1,8 +1,6 @@
 package com.pasionatii.assistant.controller;
 
 import com.pasionatii.assistant.entity.*;
-import com.pasionatii.assistant.entity.Class;
-import com.pasionatii.assistant.repository.IClassRepository;
 import com.pasionatii.assistant.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,8 +14,6 @@ import java.util.Optional;
 @RequestMapping("/assistant/students")
 public class StudentController {
     @Autowired
-    private IClassRepository classRepository;
-    @Autowired
     private IStudentRepository studentRepository;
 
     @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
@@ -26,7 +22,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/{id}/assignments", method = RequestMethod.GET)
-    public ResponseEntity<?> getAssignmentsForStudent(@PathVariable String idClass, @PathVariable String id) {
+    public ResponseEntity<?> getAssignmentsForStudent(@PathVariable String id) {
         Optional<Student> student = studentRepository.findById(Long.parseLong(id));
         if (student.isEmpty()) {
             return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
@@ -37,7 +33,7 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/{id}/grades", method = RequestMethod.GET)
-    public ResponseEntity<?> getAssignmentGradesForStudent(@PathVariable String idClass, @PathVariable String id) {
+    public ResponseEntity<?> getAssignmentGradesForStudent(@PathVariable String id) {
         Optional<Student> student = studentRepository.findById(Long.parseLong(id));
         if (student.isEmpty()) {
             return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);

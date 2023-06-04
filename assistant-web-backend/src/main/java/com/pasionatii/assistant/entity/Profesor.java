@@ -1,6 +1,5 @@
 package com.pasionatii.assistant.entity;
 
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,11 +10,7 @@ public class Profesor extends User {
     private String lastname;
 
     public Profesor() {
-    }
 
-    public Profesor(String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
     }
 
     public String getFirstname() {

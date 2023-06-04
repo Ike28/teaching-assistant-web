@@ -2,8 +2,8 @@ package com.pasionatii.assistant.repository;
 
 import com.pasionatii.assistant.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public interface ICourseRepository extends JpaRepository<Course, Long> {
 }
