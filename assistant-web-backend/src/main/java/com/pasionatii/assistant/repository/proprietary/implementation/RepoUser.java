@@ -1,12 +1,11 @@
-package com.pasionatii.assistant.repository.Implementation;
+package com.pasionatii.assistant.repository.proprietary.implementation;
 
 import com.pasionatii.assistant.entity.User;
-import com.pasionatii.assistant.repository.Interface.Repository;
+import com.pasionatii.assistant.repository.proprietary.Repository;
 import com.pasionatii.assistant.repository.SessionFactoryProvider;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
-import org.springframework.context.annotation.Bean;
 
 public class RepoUser implements Repository<User> {
 

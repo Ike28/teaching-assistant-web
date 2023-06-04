@@ -1,7 +1,7 @@
-package com.pasionatii.assistant.repository.Implementation;
+package com.pasionatii.assistant.repository.proprietary.implementation;
 
 import com.pasionatii.assistant.entity.Profesor;
-import com.pasionatii.assistant.repository.Interface.IProfesorRepository;
+import com.pasionatii.assistant.repository.proprietary.IProfesorRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;

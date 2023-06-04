@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/assistant/students")
+@RequestMapping("/assistant/users/students")
 public class StudentController {
     @Autowired
     private IStudentRepository studentRepository;
@@ -40,6 +40,21 @@ public class StudentController {
         } else {
             Student found = student.get();
             return new ResponseEntity<>(found.getGrades(), HttpStatus.OK);
+        }
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public ResponseEntity<?> create(@RequestBody Student student) {
+        return new ResponseEntity<>(studentRepository.save(student), HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<?> login(@RequestBody Student student) {
+        Optional<Student> found = studentRepository.findByEmailAndPassword(student.getEmail(), student.getPassword());
+        if (found.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        } else {
+            return new ResponseEntity<>(found.get(), HttpStatus.OK);
         }
     }
 }
