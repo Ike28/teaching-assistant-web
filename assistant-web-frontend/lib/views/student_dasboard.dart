@@ -278,7 +278,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
         for (int i = 0; i < results.length; i++) {
           final Map<String, dynamic> subject = results[i] as Map<String, dynamic>;
           final Subject item = Subject(
-              id: subject['id'] as String,
+              id: subject['id'] as int,
               name: subject['name'] as String);
           _subjects.add(item);
         }
@@ -311,7 +311,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
       setState(() {
         final Subject item = Subject(
-            id: subject['id'] as String,
+            id: subject['id'] as int,
             name: subject['name'] as String);
         _subjects.add(item);
         _isLoading = false;
