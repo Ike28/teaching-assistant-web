@@ -1,5 +1,11 @@
 class User {
-  User(this.email, this.password);
+  User({
+    this.id,
+    required this.email,
+    required this.password
+  });
+
+  String? id;
   String email;
   String password;
 }

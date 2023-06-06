@@ -17,7 +17,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  User user = User('', '');
+  User user = User(password: '', email: '');
 
   final Uri uri = Uri(scheme: 'http', host: 'localhost', port: 8000, path: '/login');
 

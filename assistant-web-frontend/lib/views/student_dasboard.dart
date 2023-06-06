@@ -1,24 +1,34 @@
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+
+import '../api_model/subject.dart';
+import '../component/teacher_dashboard/header.dart';
+import '../component/teacher_dashboard/info_card.dart';
+import '../config/size_config.dart';
 
 class ListaLectiiPage extends StatefulWidget {
+  const ListaLectiiPage({super.key});
+
   @override
-  _ListaLectiiPageState createState() => _ListaLectiiPageState();
+  ListaLectiiPageState createState() => ListaLectiiPageState();
 }
 
-class _ListaLectiiPageState extends State<ListaLectiiPage> {
+class ListaLectiiPageState extends State<ListaLectiiPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Lectii'),
+        title: const Text('Lista Lectii'),
       ),
-      body: Container(
+      body: ColoredBox(
       color: Colors.purple,
         child:  ListView(
-          children: [
+          children: <ListTile>[
             ListTile(
-              title: Text('Lectia 1'),
+              title: const Text('Lectia 1'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -26,25 +36,25 @@ class _ListaLectiiPageState extends State<ListaLectiiPage> {
               },
             ),
             ListTile(
-              title: Text('Lectia 2'),
+              title: const Text('Lectia 2'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 3'),
+              title: const Text('Lectia 3'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 4'),
+              title: const Text('Lectia 4'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 5'),
+              title: const Text('Lectia 5'),
               onTap: () {
                 // to do
               },
@@ -57,24 +67,26 @@ class _ListaLectiiPageState extends State<ListaLectiiPage> {
 }
 
 class ListaTemePage extends StatefulWidget {
+  const ListaTemePage({super.key});
+
   @override
-  _ListaTemePageState createState() => _ListaTemePageState();
+  ListaTemePageState createState() => ListaTemePageState();
 }
 
-class _ListaTemePageState extends State<ListaTemePage> {
+class ListaTemePageState extends State<ListaTemePage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Teme'),
+        title: const Text('Lista Teme'),
       ),
-      body: Container(
+      body: ColoredBox(
           color: Colors.purple,
           child: ListView(
-            children: [
+            children: <ListTile>[
               ListTile(
-                title: Text('Tema 1'),
+                title: const Text('Tema 1'),
                 onTap: () {
                   // Implementează acțiunea de navigare către detalii pentru lectia 1
                   // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -82,25 +94,25 @@ class _ListaTemePageState extends State<ListaTemePage> {
                 },
               ),
               ListTile(
-                title: Text('Tema 2'),
+                title: const Text('Tema 2'),
                 onTap: () {
                   // to do
                 },
               ),
               ListTile(
-                title: Text('Tema 3'),
+                title: const Text('Tema 3'),
                 onTap: () {
                   // to do
                 },
               ),
               ListTile(
-                title: Text('Tema 4'),
+                title: const Text('Tema 4'),
                 onTap: () {
                   // to do
                 },
               ),
               ListTile(
-                title: Text('Tema 5'),
+                title: const Text('Tema 5'),
                 onTap: () {
                   // to do
                 },
@@ -115,24 +127,26 @@ class _ListaTemePageState extends State<ListaTemePage> {
 
 
 class ListaQuizPage extends StatefulWidget {
+  const ListaQuizPage({super.key});
+
   @override
-  _ListaQuizPageState createState() => _ListaQuizPageState();
+  ListaQuizPageState createState() => ListaQuizPageState();
 }
 
-class _ListaQuizPageState extends State<ListaQuizPage> {
+class ListaQuizPageState extends State<ListaQuizPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Quizuri'),
+        title: const Text('Lista Quizuri'),
       ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.purple,
         child: ListView(
-          children: [
+          children: <ListTile>[
             ListTile(
-              title: Text('Quiz 1'),
+              title: const Text('Quiz 1'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -140,25 +154,25 @@ class _ListaQuizPageState extends State<ListaQuizPage> {
               },
             ),
             ListTile(
-              title: Text('Quiz 2'),
+              title: const Text('Quiz 2'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 3'),
+              title: const Text('Quiz 3'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 4'),
+              title: const Text('Quiz 4'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 5'),
+              title: const Text('Quiz 5'),
               onTap: () {
                 // to do
               },
@@ -172,24 +186,26 @@ class _ListaQuizPageState extends State<ListaQuizPage> {
 }
 
 class ListaNotePage extends StatefulWidget {
+  const ListaNotePage({super.key});
+
   @override
-  _ListaNotePageState createState() => _ListaNotePageState();
+  ListaNotePageState createState() => ListaNotePageState();
 }
 
-class _ListaNotePageState extends State<ListaNotePage> {
+class ListaNotePageState extends State<ListaNotePage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Note'),
+        title: const Text('Lista Note'),
       ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.purple,
         child: ListView(
-          children: [
+          children: <ListTile>[
             ListTile(
-              title: Text('<20/01/2023> Nota 10'),
+              title: const Text('<20/01/2023> Nota 10'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -197,19 +213,19 @@ class _ListaNotePageState extends State<ListaNotePage> {
               },
             ),
             ListTile(
-              title: Text('<25/01/2023> Nota 9'),
+              title: const Text('<25/01/2023> Nota 9'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('<08/02/2023> Nota 8'),
+              title: const Text('<08/02/2023> Nota 8'),
               onTap: () {
                 // to do
               },
-            ),  1
+            ),
             ListTile(
-              title: Text('<16/03/2023> Nota 10'),
+              title: const Text('<16/03/2023> Nota 10'),
               onTap: () {
                 // to do
               },
@@ -233,7 +249,6 @@ class StudentDashboard extends StatefulWidget {
 class _StudentDashboardState extends State<StudentDashboard> {
   final List<Subject> _subjects = <Subject>[];
   final TextEditingController _searchController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
 
   bool _isLoading = false;
   bool _updating = false;
@@ -263,8 +278,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
         for (int i = 0; i < results.length; i++) {
           final Map<String, dynamic> subject = results[i] as Map<String, dynamic>;
           final Subject item = Subject(
-              id: subject['id'] as int,
-              name: subject['name'] as String,
+              id: subject['id'] as String,
+              name: subject['name'] as String);
           _subjects.add(item);
         }
         _isLoading = false;
@@ -296,8 +311,8 @@ class _StudentDashboardState extends State<StudentDashboard> {
 
       setState(() {
         final Subject item = Subject(
-            id: subject['id'] as int,
-            name: subject['name'] as String,
+            id: subject['id'] as String,
+            name: subject['name'] as String);
         _subjects.add(item);
         _isLoading = false;
       });
@@ -327,15 +342,15 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       spacing: 20,
                       runSpacing: 20,
                       alignment: WrapAlignment.spaceBetween,
-                      children: [
+                      children: <Widget>[
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaLectiiPage()),
+                              MaterialPageRoute<ListaLectiiPage>(builder: (BuildContext context) => const ListaLectiiPage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/lesson.svg',
                             label: 'Lectii',
                             amount: '>',
@@ -345,10 +360,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaTemePage()),
+                              MaterialPageRoute<ListaTemePage>(builder: (BuildContext context) => const ListaTemePage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/teme.svg',
                             label: 'Teme',
                             amount: '>',
@@ -358,10 +373,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaQuizPage()),
+                              MaterialPageRoute<ListaQuizPage>(builder: (BuildContext context) => const ListaQuizPage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/quiz.svg',
                             label: 'Quizuri',
                             amount: '>',
@@ -371,10 +386,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaNotePage()),
+                              MaterialPageRoute<ListaNotePage>(builder: (BuildContext context) => const ListaNotePage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/note.svg',
                             label: 'Note',
                             amount: '>',
@@ -442,7 +457,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       if (_searchQuery.isEmpty) {
                         _getSubjects();
                       } else {
-                        _getSubjectsByName(name: _searchQuery);
+                        _getSubjectByName(name: _searchQuery);
                       }
                     },
                     style: TextButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
@@ -469,10 +484,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                                     end: AlignmentDirectional.topCenter,
                                     colors: <Color>[Colors.purple, Colors.transparent])),
                             child: ListTile(
-                              title: Text('${subject.name}'),
+                              title: Text(subject.name),
                               subtitle: Text('id #${subject.id}'),
                               onTap: () {
-                                _showMenu(id: subject.id, name: subject.name);
+                                _showMenu();
                               },
                             ),
                           ))
@@ -486,4 +501,3 @@ class _StudentDashboardState extends State<StudentDashboard> {
         ));
   }
 }
-

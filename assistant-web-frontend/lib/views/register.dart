@@ -18,7 +18,7 @@ class Register extends StatefulWidget {
 class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  User user = User('', '');
+  User user = User(password: '', email: '');
   final Uri uri = Uri(scheme: 'http', host: 'localhost', port: 8000, path: '/register');
 
   Future<void> save() async {

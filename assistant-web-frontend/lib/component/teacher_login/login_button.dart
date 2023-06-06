@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../style/palette.dart';
+import '../../views/student_dasboard.dart';
 import '../../views/teacher_dashboard.dart';
 
 class LoginButton extends StatelessWidget {
@@ -23,7 +24,7 @@ class LoginButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => TeacherDashboard()));
+          Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => const StudentDashboard()));
         },
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(395, 55),
