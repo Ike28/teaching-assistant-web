@@ -8,7 +8,7 @@
             <generator class="identity"/>
         </id>
         <property name="title" column="title"/>
-        <property name="doDate" column="doDate"/>
+        <property name="doDate" column="do_date"/>
         <many-to-one name="course" column="id_course"/>
     </class>
 </hibernate-mapping>

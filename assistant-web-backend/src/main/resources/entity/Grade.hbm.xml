@@ -6,6 +6,6 @@
             <generator class="identity"/>
         </id>
         <many-to-one name="student" class="Student" column="id_student"/>
-        <property name="getValue" column="value" type="java.lang.Integer"/>
+        <property name="value" column="value" type="java.lang.Integer"/>
     </class>
 </hibernate-mapping>

@@ -20,11 +20,8 @@ public class Assignment {
     @JoinColumn(name = "id_course", nullable = false)
     private Course course;
 
-    @ManyToOne
-    @JoinColumn(name = "id_class", nullable = false)
-    private Class assignedClass;
 
-    @Column(name = "doDate")
+    @Column(name = "do_date")
     private LocalDateTime dueDate;
 
     @Column(name = "text")
@@ -38,7 +35,6 @@ public class Assignment {
     // Constructor with all fields
     public Assignment(Course course, Class assignedClass, LocalDateTime dueDate, String text) {
         this.course = course;
-        this.assignedClass = assignedClass;
         this.dueDate = dueDate;
         this.text = text;
     }
@@ -77,13 +73,6 @@ public class Assignment {
         this.text = text;
     }
 
-    public Class getAssignedClass() {
-        return assignedClass;
-    }
-
-    public void setAssignedClass(Class assignedClass) {
-        this.assignedClass = assignedClass;
-    }
 
     public Set<AssignmentStatus> getAssignmentStatuses() {
         return assignmentStatuses;

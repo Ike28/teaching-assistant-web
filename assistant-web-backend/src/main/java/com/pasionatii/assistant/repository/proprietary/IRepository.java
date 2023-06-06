@@ -1,6 +1,9 @@
 package com.pasionatii.assistant.repository.proprietary;
 
-public interface Repository< E> {
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface IRepository< E> {
 
     void save(E entity);
 

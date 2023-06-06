@@ -2,7 +2,6 @@ package com.pasionatii.assistant.controller;
 
 import com.pasionatii.assistant.entity.Assignment;
 import com.pasionatii.assistant.entity.Task;
-import com.pasionatii.assistant.repository.IAssignmentRepository;
 import com.pasionatii.assistant.repository.ITaskRepository;
 import com.pasionatii.assistant.service.AssignmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,12 @@ public class AssignmentController {
     @Autowired
     private ITaskRepository taskRepository;
 
-    @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
-    public ResponseEntity<?> getAssignmentsByClass(@PathVariable String idClass) {
-        return new ResponseEntity<>(
-                assignmentService.findAssignmentsByAssignedClass_Id(Long.parseLong(idClass)),
-                HttpStatus.OK);
-    }
+//    @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
+//    public ResponseEntity<?> getAssignmentsByClass(@PathVariable String idClass) {
+//        return new ResponseEntity<>(
+//                assignmentService.findAssignmentsByAssignedClass_Id(Long.parseLong(idClass)),
+//                HttpStatus.OK);
+//    }
 
     @RequestMapping(value = "?course-id={idCourse}", method = RequestMethod.GET)
     public ResponseEntity<?> getAssignmentsByCourse(@PathVariable String idCourse) {
