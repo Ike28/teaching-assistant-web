@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import '../../style/palette.dart';
 
 class LoginField extends StatelessWidget {
-  const LoginField({super.key, required this.hintText, required this.obscure});
+  const LoginField({super.key, required this.hintText, required this.obscure, required this.controller});
   final String hintText;
   final bool obscure;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,7 @@ class LoginField extends StatelessWidget {
         maxWidth: 400,
       ),
       child: TextFormField(
+        controller: controller,
         style: const TextStyle(color: Colors.white),
         obscureText: obscure,
         decoration: InputDecoration(
