@@ -2,6 +2,8 @@ package com.pasionatii.assistant.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "subject")
 public class Subject {
@@ -11,6 +13,9 @@ public class Subject {
 
     @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "subject")
+    private Set<Course> courses;
 
     public Subject() {
     }

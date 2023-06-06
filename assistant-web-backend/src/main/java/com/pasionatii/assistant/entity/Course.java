@@ -2,6 +2,8 @@ package com.pasionatii.assistant.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "course")
 public class Course {
@@ -20,6 +22,9 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "id_subject")
     private Subject subject;
+
+    @OneToMany(mappedBy = "course")
+    private Set<Lesson> lessons;
 
     public Course() {
     }
@@ -54,5 +59,13 @@ public class Course {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public Set<Lesson> getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Set<Lesson> lessons) {
+        this.lessons = lessons;
     }
 }

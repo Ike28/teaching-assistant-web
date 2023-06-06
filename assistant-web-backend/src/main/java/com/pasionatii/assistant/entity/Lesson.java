@@ -2,8 +2,6 @@ package com.pasionatii.assistant.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Table(name = "lesson")
 public class Lesson {
@@ -19,11 +17,9 @@ public class Lesson {
     @Column(name = "content")
     private String content;
 
-
-    @Column(name = "courseId")
-    private Long courseId;
-
-
+    @ManyToOne
+    @JoinColumn(name = "id_course")
+    private Course course;
 
     public Lesson() {
     }
@@ -48,19 +44,15 @@ public class Lesson {
         return content;
     }
 
-
-
     public void setContent(String content) {
         this.content = content;
     }
 
-    public Long getCourseId() {
-        return courseId;
+    public Course getCourse() {
+        return course;
     }
 
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
+    public void setCourse(Course course) {
+        this.course = course;
     }
-
-
 }

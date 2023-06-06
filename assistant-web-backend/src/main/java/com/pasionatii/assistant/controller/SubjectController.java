@@ -1,6 +1,5 @@
 package com.pasionatii.assistant.controller;
 
-import com.pasionatii.assistant.repository.IQuizRepository;
 import com.pasionatii.assistant.repository.ISubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,11 +18,8 @@ public class SubjectController {
         return new ResponseEntity<>(subjectRepository.findAll(), HttpStatus.OK);
     }
 
-
     @RequestMapping(value = "?subject-name={subjectName}", method = RequestMethod.GET)
-    public ResponseEntity<?> getSubjectsByName(@PathVariable String name) {
-        return new ResponseEntity<>(subjectRepository.findSubjectByName(name), HttpStatus.OK);
+    public ResponseEntity<?> getSubjectsByName(@PathVariable String subjectName) {
+        return new ResponseEntity<>(subjectRepository.findSubjectByName(subjectName), HttpStatus.OK);
     }
-
-
 }

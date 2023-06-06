@@ -20,7 +20,6 @@
         <mapping class="com.pasionatii.assistant.entity.Task"/>
         <mapping class="com.pasionatii.assistant.entity.TaskStatus"/>
         <mapping class="com.pasionatii.assistant.entity.Student"/>
-        <mapping class="com.pasionatii.assistant.entity.Subject"/>
         <mapping class="com.pasionatii.assistant.entity.Question"/>
         <mapping class="com.pasionatii.assistant.entity.QuestionResolved"/>
         <mapping class="com.pasionatii.assistant.entity.Post"/>
@@ -49,7 +48,6 @@
         <mapping resource="entity/QuestionResolved.hbm.xml"/>
         <mapping resource="entity/Quiz.hbm.xml"/>
         <mapping resource="entity/Student.hbm.xml"/>
-        <mapping resource="entity/Subject.hbm.xml"/>
         <mapping resource="entity/TaskStatus.xml"/>
         <mapping resource="entity/Task.hbm.xml"/>
         <mapping resource="entity/User.hbm.xml"/>

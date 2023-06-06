@@ -23,6 +23,17 @@ public class CourseController {
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);
     }
 
+    @RequestMapping(value = "?class-id={classId}", method = RequestMethod.GET)
+    public ResponseEntity<?> getByClass(@PathVariable Long classId) {
+        return new ResponseEntity<>(courseRepository.findCoursesByCourseClass_Id(classId), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "?class-id={classId}&name={name}", method = RequestMethod.GET)
+    public ResponseEntity<?> getByClassAndName(@PathVariable Long classId, @PathVariable String name) {
+        return new ResponseEntity<>(
+                courseRepository.findCourseBySubject_NameAndCourseClass_Id(name, classId), HttpStatus.OK);
+    }
+
     @RequestMapping(value = "/{id}/posts", method = RequestMethod.GET)
     public ResponseEntity<?> getPostsByCourse(@PathVariable String id) {
         return new ResponseEntity<>(postRepository.findPostsByCourse_Id(Long.parseLong(id)), HttpStatus.OK);

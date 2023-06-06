@@ -3,16 +3,18 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.pasionatii.assistant.entity">
-
     <class name="Course" table="course">
         <id name="id" column="id">
             <generator class="assigned"/>
         </id>
-
         <many-to-one name="professor" column="id_profesor" not-null="false" cascade="all"/>
         <many-to-one name="courseClass" column="id_class" not-null="false" cascade="all"/>
         <many-to-one name="subject" column="id_subject" not-null="false" cascade="all"/>
-
+        <set name="lessons" table="lesson" inverse="true" cascade="save-update" lazy="true" fetch="select">
+            <key>
+                <column name="id_course" not-null="true"/>
+            </key>
+            <one-to-many class="com.pasionatii.assistant.entity.Lesson"/>
+        </set>
     </class>
-
 </hibernate-mapping>
