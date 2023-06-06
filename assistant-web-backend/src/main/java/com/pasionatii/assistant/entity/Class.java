@@ -11,8 +11,7 @@ public class Class {
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy = "assignedClass")
-    private Set<Assignment> assignments;
+
     @OneToMany(mappedBy = "assignedClass")
     private Set<Student> students;
     private String name;
@@ -40,13 +39,6 @@ public class Class {
         this.name = name;
     }
 
-    public Set<Assignment> getAssignments() {
-        return assignments;
-    }
-
-    public void setAssignments(Set<Assignment> assignments) {
-        this.assignments = assignments;
-    }
 
     public Set<Student> getStudents() {
         return students;

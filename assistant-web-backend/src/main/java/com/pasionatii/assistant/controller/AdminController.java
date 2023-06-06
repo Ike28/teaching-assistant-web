@@ -1,7 +1,6 @@
 package com.pasionatii.assistant.controller;
 
 import com.pasionatii.assistant.entity.Admin;
-import com.pasionatii.assistant.entity.Student;
 import com.pasionatii.assistant.repository.IAdminRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,7 +17,7 @@ public class AdminController {
     private IAdminRepository adminRepository;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody Student student) {
+    public ResponseEntity<?> login(@RequestBody Admin student) {
         Optional<Admin> found = adminRepository.findByEmailAndPassword(student.getEmail(), student.getPassword());
         if (found.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
