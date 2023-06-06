@@ -266,7 +266,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
       _subjects.clear();
     });
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/contest/subjects');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects');
 
     final Response response = await client.get(uri);
 
@@ -294,7 +294,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
       _subjects.clear();
     });
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/contest/subjects/$name');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects/?subject-name=$name');
 
     final Response response = await client.get(uri);
 
