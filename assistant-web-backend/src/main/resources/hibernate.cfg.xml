@@ -24,6 +24,7 @@
         <mapping class="com.pasionatii.assistant.entity.Question"/>
         <mapping class="com.pasionatii.assistant.entity.QuestionResolved"/>
         <mapping class="com.pasionatii.assistant.entity.Post"/>
+        <mapping class="com.pasionatii.assistant.entity.Lesson"/>
         <mapping class="com.pasionatii.assistant.entity.Quiz"/>
         <mapping class="com.pasionatii.assistant.entity.Grade"/>
         <mapping class="com.pasionatii.assistant.entity.GradeQuiz"/>
@@ -53,5 +54,7 @@
         <mapping resource="entity/Task.hbm.xml"/>
         <mapping resource="entity/User.hbm.xml"/>
         <mapping resource="entity/AssignmentStatus.hbm.xml"/>
+        <mapping resource="entity/Lesson.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
