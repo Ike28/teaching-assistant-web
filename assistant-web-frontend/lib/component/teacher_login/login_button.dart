@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../style/palette.dart';
-import '../../views/student_dasboard.dart';
-import '../../views/teacher_dashboard.dart';
 
 class LoginButton extends StatelessWidget {
-  const LoginButton({super.key});
+  const LoginButton({super.key, required this.onPressed});
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +22,7 @@ class LoginButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(7),
       ),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute<dynamic>(builder: (BuildContext context) => const StudentDashboard()));
-        },
+        onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           fixedSize: const Size(395, 55),
           backgroundColor: Colors.transparent,
