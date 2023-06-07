@@ -51,14 +51,23 @@ class TeacherLogin extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50, color: Palette.whiteColor),
                 ),
                 const SizedBox(height: 50),
-                const SocialLoginButton(iconPath: 'assets/svg/elevi_login_logo.svg', label: 'Conectare elevi', onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => StudentLogin()))
-                },),
+                SocialLoginButton(iconPath: 'assets/svg/elevi_login_logo.svg', label: 'Conectare elevi',
+                  onPressed: () {
+                    Navigator.push(
+                        context, MaterialPageRoute<StudentLogin>(
+                        builder: (BuildContext context) => StudentLogin()));
+                  }
+                ),
                 const SizedBox(height: 20),
-                const SocialLoginButton(
+                SocialLoginButton(
                   iconPath: 'assets/svg/admin_login_logo.svg',
                   label: 'Conectare administratori',
                   horizontalPadding: 90,
+                  onPressed: () {
+                    Navigator.push(
+                        context, MaterialPageRoute<StudentLogin>(
+                        builder: (BuildContext context) => StudentLogin()));
+                  },
                 ),
                 const SizedBox(height: 15),
                 const Text(
@@ -72,7 +81,9 @@ class TeacherLogin extends StatelessWidget {
                 const SizedBox(height: 15),
                 LoginField(hintText: 'Parolă', obscure: true, controller: _passwordController),
                 const SizedBox(height: 20),
-                LoginButton(onPressed: () async {
+                LoginButton(
+                    text: 'Conectare cadru didactic',
+                    onPressed: () async {
                   final Teacher? foundTeacher = await connect();
                   if (foundTeacher != null) {
                     Navigator.push(

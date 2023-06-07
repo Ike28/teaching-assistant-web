@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../style/palette.dart';
 
 class SocialLoginButton extends StatelessWidget {
-  const SocialLoginButton({
+  SocialLoginButton({
     super.key,
     required this.iconPath,
     required this.label,

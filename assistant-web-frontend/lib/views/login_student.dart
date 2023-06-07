@@ -9,6 +9,7 @@ import '../component/teacher_login/login_field.dart';
 import '../component/teacher_login/social_login_button.dart';
 import '../config/api_utils.dart';
 import '../style/palette.dart';
+import 'login_teacher.dart';
 import 'student_dasboard.dart';
 
 class StudentLogin extends StatelessWidget {
@@ -29,7 +30,7 @@ class StudentLogin extends StatelessWidget {
           email: student['email'] as String,
           firstname: student['firstname'] as String,
           lastname: student['lastname'] as String,
-          idClass: student['id_class'] as int);
+          idClass: student['assignedClass']['id'] as int);
       return foundStudent;
     }
     return null;
@@ -50,12 +51,25 @@ class StudentLogin extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50, color: Palette.whiteColor),
                 ),
                 const SizedBox(height: 50),
-                const SocialLoginButton(iconPath: 'assets/svg/profi_login_logo.svg', label: 'Conectare cadre didactice'),
+                SocialLoginButton(
+                    iconPath: 'assets/svg/elevi_login_logo.svg',
+                    label: 'Conectare cadre didactice',
+                    onPressed: () {
+                      Navigator.push(
+                          context, MaterialPageRoute<TeacherLogin>(
+                          builder: (BuildContext context) => TeacherLogin()));
+                    },
+                ),
                 const SizedBox(height: 20),
-                const SocialLoginButton(
+                SocialLoginButton(
                   iconPath: 'assets/svg/admin_login_logo.svg',
                   label: 'Conectare administratori',
                   horizontalPadding: 90,
+                  onPressed: () {
+                    Navigator.push(
+                        context, MaterialPageRoute<StudentLogin>(
+                        builder: (BuildContext context) => StudentLogin()));
+                  },
                 ),
                 const SizedBox(height: 15),
                 const Text(
@@ -69,7 +83,9 @@ class StudentLogin extends StatelessWidget {
                 const SizedBox(height: 15),
                 LoginField(hintText: 'Parolă', obscure: true, controller: _passwordController),
                 const SizedBox(height: 20),
-                LoginButton(onPressed: () async {
+                LoginButton(
+                    text: 'Conectare elev',
+                    onPressed: () async {
                   final Student? foundStudent = await connect();
                   if (foundStudent != null) {
                     Navigator.push(
