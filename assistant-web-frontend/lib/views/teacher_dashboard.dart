@@ -58,7 +58,7 @@ class TeacherDashboard extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const Header(),
+                        const Header(title: 'Clasa IX B',),
                         SizedBox(
                           height: SizeConfig.blockSizeVertical * 4,
                         ),

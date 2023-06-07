@@ -3,11 +3,9 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import '../api_model/course.dart';
 import '../api_model/student.dart';
-import '../api_model/subject.dart';
-import '../component/teacher_dashboard/header.dart';
-import '../component/teacher_dashboard/info_card.dart';
-import '../config/size_config.dart';
+import 'subject_menu.dart';
 
 class ListaLectiiPage extends StatefulWidget {
   const ListaLectiiPage({super.key});
@@ -240,7 +238,7 @@ class StudentDashboard extends StatefulWidget {
 }
 
 class _StudentDashboardState extends State<StudentDashboard> {
-  final List<Subject> _subjects = <Subject>[];
+  final List<Course> _courses = <Course>[];
   final TextEditingController _searchController = TextEditingController();
 
   bool _isLoading = false;
@@ -250,41 +248,48 @@ class _StudentDashboardState extends State<StudentDashboard> {
   @override
   void initState() {
     super.initState();
-    _getSubjects();
+    _getCourses();
   }
 
-  Future<void> _getSubjects() async {
+  Future<void> _getCourses() async {
     setState(() {
       _isLoading = true;
-      _subjects.clear();
+      _courses.clear();
     });
+
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/courses/?class-id=${widget.student.idClass}');
 
     final Response response = await client.get(uri);
 
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body) as List<dynamic>;
-      final List<dynamic> results = data;
 
       setState(() {
-        for (int i = 0; i < results.length; i++) {
-          final Map<String, dynamic> subject = results[i] as Map<String, dynamic>;
-          final Subject item = Subject(id: subject['id'] as int, name: subject['name'] as String);
-          _subjects.add(item);
+        for (int i = 0; i < data.length; i++) {
+          final Map<String, dynamic> course = data[i] as Map<String, dynamic>;
+          final Course item = Course(
+              id: course['id'] as int,
+              teacherId: course['professor']['id'] as int,
+              classId: course['courseClass']['id'] as int,
+              subjectId: course['subject']['id'] as int,
+              name: course['subject']['name'] as String
+          );
+          _courses.add(item);
         }
-        _isLoading = false;
       });
     }
+
+    _isLoading = false;
   }
 
-  Future<void> _getSubjectByName({required String name}) async {
+  Future<void> _getCourseByName({required String name}) async {
     setState(() {
       _isLoading = true;
-      _subjects.clear();
+      _courses.clear();
     });
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects/?subject-name=$name');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/courses/?class-id=${widget.student.idClass}&name=$name');
 
     final Response response = await client.get(uri);
 
@@ -295,114 +300,30 @@ class _StudentDashboardState extends State<StudentDashboard> {
     }
 
     if (response.statusCode == 200) {
-      final Map<String, dynamic> subject = jsonDecode(response.body) as Map<String, dynamic>;
+      final Map<String, dynamic> course = jsonDecode(response.body) as Map<String, dynamic>;
 
       setState(() {
-        final Subject item = Subject(id: subject['id'] as int, name: subject['name'] as String);
-        _subjects.add(item);
-        _isLoading = false;
+        final Course item = Course(
+            id: course['id'] as int,
+            teacherId: course['professor']['id'] as int,
+            classId: course['courseClass']['id'] as int,
+            subjectId: course['subject']['id'] as int,
+            name: course['subject']['name'] as String);
+        _courses.add(item);
       });
     }
+
+    _isLoading = false;
   }
 
-  void _showMenu() {
+  void _showMenu(final Course course) {
     if (_updating) {
       return;
     }
     setState(() {
-      _updating = true;
-      showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: const Text('Materie:'),
-              content: Column(
-                children: <Widget>[
-                  const Header(),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 4,
-                  ),
-                  SizedBox(
-                    width: SizeConfig.screenWidth,
-                    child: Wrap(
-                      spacing: 20,
-                      runSpacing: 20,
-                      alignment: WrapAlignment.spaceBetween,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<ListaLectiiPage>(
-                                  builder: (BuildContext context) => const ListaLectiiPage()),
-                            );
-                          },
-                          child: const InfoCard(
-                            icon: 'assets/lesson.svg',
-                            label: 'Lectii',
-                            amount: '>',
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<ListaTemePage>(
-                                  builder: (BuildContext context) => const ListaTemePage()),
-                            );
-                          },
-                          child: const InfoCard(
-                            icon: 'assets/teme.svg',
-                            label: 'Teme',
-                            amount: '>',
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<ListaQuizPage>(
-                                  builder: (BuildContext context) => const ListaQuizPage()),
-                            );
-                          },
-                          child: const InfoCard(
-                            icon: 'assets/quiz.svg',
-                            label: 'Quizuri',
-                            amount: '>',
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute<ListaNotePage>(
-                                  builder: (BuildContext context) => const ListaNotePage()),
-                            );
-                          },
-                          child: const InfoCard(
-                            icon: 'assets/note.svg',
-                            label: 'Note',
-                            amount: '>',
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: SizeConfig.blockSizeVertical * 4,
-                  ),
-                ],
-              ),
-              actions: <Widget>[
-                TextButton(
-                    onPressed: () {
-                      _updating = false;
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text('Iesire'))
-              ],
-            );
-          });
+      Navigator.push(
+          context, MaterialPageRoute<SubjectMenu>(
+          builder: (BuildContext context) => SubjectMenu(course: course)));
     });
   }
 
@@ -443,9 +364,9 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onPressed: () {
                             _searchQuery = _searchController.text;
                             if (_searchQuery.isEmpty) {
-                              _getSubjects();
+                              _getCourses();
                             } else {
-                              _getSubjectByName(name: _searchQuery);
+                              _getCourseByName(name: _searchQuery);
                             }
                           },
                           style: TextButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
@@ -456,12 +377,12 @@ class _StudentDashboardState extends State<StudentDashboard> {
                     height: 10,
                   ),
                   Expanded(
-                    child: _subjects.isNotEmpty
+                    child: _courses.isNotEmpty
                         ? GridView.builder(
-                            itemCount: _subjects.length,
+                            itemCount: _courses.length,
                             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
                             itemBuilder: (BuildContext context, int index) {
-                              final Subject subject = _subjects[index];
+                              final Course course = _courses[index];
                               return Stack(fit: StackFit.expand, children: <Widget>[
                                 Align(
                                     alignment: AlignmentDirectional.bottomEnd,
@@ -472,10 +393,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
                                               end: AlignmentDirectional.topCenter,
                                               colors: <Color>[Colors.purple, Colors.transparent])),
                                       child: ListTile(
-                                        title: Text(subject.name),
-                                        subtitle: Text('id #${subject.id}'),
+                                        title: Text(course.name),
+                                        subtitle: Text('id #${course.id}'),
                                         onTap: () {
-                                          _showMenu();
+                                          _showMenu(course);
                                         },
                                       ),
                                     ))
