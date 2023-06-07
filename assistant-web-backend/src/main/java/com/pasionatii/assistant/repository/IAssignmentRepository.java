@@ -8,7 +8,5 @@ import java.util.List;
 
 @Repository
 public interface IAssignmentRepository extends JpaRepository<Assignment, Long> {
-   // List<Assignment> findAssignmentsByAssignedClass_Id(Long classId);
-
     List<Assignment> findAssignmentsByCourse_Id(Long courseId);
 }
