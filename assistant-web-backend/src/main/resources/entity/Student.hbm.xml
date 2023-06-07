@@ -5,19 +5,6 @@
     <key column="id" />
     <property name="firstname" column="firstname" type="string" />
     <property name="lastname" column="lastname" type="string" />
-    <many-to-one name="assignedClass" class="com.pasionatii.assistant.entity.Class" column="id_class"/>
-    <set name="assignmentStatuses" table="assignmentstatus" inverse="true" cascade="save-update" lazy="true" fetch="select">
-        <key>
-            <column name="id_student" not-null="true" />
-        </key>
-        <one-to-many class="com.pasionatii.assistant.entity.AssignmentStatus" />
-    </set>
-    <set name="grades" table="grade" inverse="true" cascade="save-update" lazy="true" fetch="select">
-        <key>
-            <column name="id_student" not-null="true" />
-        </key>
-        <one-to-many class="com.pasionatii.assistant.entity.Grade" />
-    </set>
+    <many-to-one name="assignedClass" class="com.pasionatii.assistant.entity.Class" column="id_class" insert="false" update="false"/>
 </joined-subclass>
 </hibernate-mapping>
-

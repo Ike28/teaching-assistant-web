@@ -11,11 +11,11 @@ public class CommentPost {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_post")
+    @JoinColumn(name = "id_post", insertable = false, updatable = false)
     private Post post;
 
     @ManyToOne
-    @JoinColumn(name = "id_user")
+    @JoinColumn(name = "id_user", insertable = false, updatable = false)
     private User user;
 
     @Column(name = "text")

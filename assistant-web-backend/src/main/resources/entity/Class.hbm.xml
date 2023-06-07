@@ -6,17 +6,5 @@
             <generator class="identity"/>
         </id>
         <property name="name" column="name" type="string"/>
-        <set name="assignments" table="assignment" inverse="true" cascade="save-update" lazy="true" fetch="select">
-            <key>
-                <column name="id_class" not-null="true" />
-            </key>
-            <one-to-many class="com.pasionatii.assistant.entity.Assignment" />
-        </set>
-        <set name="students" table="student" inverse="true" cascade="save-update" lazy="true" fetch="select">
-            <key>
-                <column name="id_class" not-null="true" />
-            </key>
-            <one-to-many class="com.pasionatii.assistant.entity.Student" />
-        </set>
     </class>
 </hibernate-mapping>

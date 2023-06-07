@@ -16,15 +16,15 @@ public class Assignment {
     @OneToMany(mappedBy = "assignment")
     private Set<AssignmentStatus> assignmentStatuses;
 
-    @ManyToOne
-    @JoinColumn(name = "id_course", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_course", nullable = false, insertable = false, updatable = false)
     private Course course;
 
-    @ManyToOne
-    @JoinColumn(name = "id_class", nullable = false)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_class", nullable = false, insertable = false, updatable = false)
     private Class assignedClass;
 
-    @Column(name = "doDate")
+    @Column(name = "do_date")
     private LocalDateTime dueDate;
 
     @Column(name = "text")

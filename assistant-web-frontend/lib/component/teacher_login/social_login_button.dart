@@ -9,15 +9,17 @@ class SocialLoginButton extends StatelessWidget {
     required this.iconPath,
     required this.label,
     this.horizontalPadding = 100,
+    required this.onPressed
   });
   final String iconPath;
   final String label;
   final double horizontalPadding;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: () {},
+      onPressed: onPressed,
       icon: SvgPicture.asset(
         iconPath,
         width: 25,

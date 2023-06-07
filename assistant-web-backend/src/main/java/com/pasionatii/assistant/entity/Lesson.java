@@ -18,7 +18,7 @@ public class Lesson {
     private String content;
 
     @ManyToOne
-    @JoinColumn(name = "id_course")
+    @JoinColumn(name = "id_course", insertable = false, updatable = false)
     private Course course;
 
     public Lesson() {

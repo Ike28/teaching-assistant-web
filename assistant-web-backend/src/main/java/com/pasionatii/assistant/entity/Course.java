@@ -12,19 +12,16 @@ public class Course {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor")
+    @JoinColumn(name = "id_profesor", insertable = false, updatable = false)
     private Profesor professor;
 
     @ManyToOne
-    @JoinColumn(name = "id_class")
+    @JoinColumn(name = "id_class", insertable = false, updatable = false)
     private Class courseClass;
 
     @ManyToOne
-    @JoinColumn(name = "id_subject")
+    @JoinColumn(name = "id_subject", insertable = false, updatable = false)
     private Subject subject;
-
-    @OneToMany(mappedBy = "course")
-    private Set<Lesson> lessons;
 
     public Course() {
     }
@@ -59,13 +56,5 @@ public class Course {
 
     public void setSubject(Subject subject) {
         this.subject = subject;
-    }
-
-    public Set<Lesson> getLessons() {
-        return lessons;
-    }
-
-    public void setLessons(Set<Lesson> lessons) {
-        this.lessons = lessons;
     }
 }

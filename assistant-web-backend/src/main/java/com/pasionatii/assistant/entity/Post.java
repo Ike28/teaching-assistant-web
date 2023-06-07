@@ -14,7 +14,7 @@ public class Post {
     private String text;
 
     @ManyToOne
-    @JoinColumn(name = "id_course")
+    @JoinColumn(name = "id_course", insertable = false, updatable = false)
     private Course course;
 
     public Post() {

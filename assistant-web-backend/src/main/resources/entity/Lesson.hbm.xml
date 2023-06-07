@@ -8,6 +8,6 @@
         </id>
         <property name="title" column="title"/>
         <property name="content" column="content"/>
-        <many-to-one name="id_course" column="id_course" not-null="false" cascade="all"/>
+        <many-to-one name="course" column="id_course" not-null="false" cascade="all" insert="false" update="false"/>
     </class>
 </hibernate-mapping>

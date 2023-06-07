@@ -12,7 +12,7 @@ public class Task {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_assignment")
+    @JoinColumn(name = "id_assignment", insertable = false, updatable = false)
     private Assignment assignment;
 
     @Column(name = "text")
@@ -21,9 +21,6 @@ public class Task {
     //save files??
     @Column(name = "file")
     private byte[] file;
-
-    @OneToMany(mappedBy = "task")
-    private Set<TaskStatus> taskStatuses;
 
     public Task() {
     }
@@ -58,13 +55,5 @@ public class Task {
 
     public void setFile(byte[] file) {
         this.file = file;
-    }
-
-    public Set<TaskStatus> getTaskStatuses() {
-        return taskStatuses;
-    }
-
-    public void setTaskStatuses(Set<TaskStatus> taskStatuses) {
-        this.taskStatuses = taskStatuses;
     }
 }

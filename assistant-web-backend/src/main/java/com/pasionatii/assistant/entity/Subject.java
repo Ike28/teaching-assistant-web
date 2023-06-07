@@ -14,9 +14,6 @@ public class Subject {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "subject")
-    private Set<Course> courses;
-
     public Subject() {
     }
 

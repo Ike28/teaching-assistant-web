@@ -5,6 +5,6 @@
 <hibernate-mapping package="com.pasionatii.assistant.entity">
     <joined-subclass name="com.pasionatii.assistant.entity.GradeQuiz" extends="com.pasionatii.assistant.entity.Grade">
         <key column="id" />
-        <many-to-one name="quiz" class="com.pasionatii.assistant.entity.Quiz" column="id_quiz"/>
+        <many-to-one name="quiz" class="com.pasionatii.assistant.entity.Quiz" column="id_quiz" insert="false" update="false"/>
     </joined-subclass>
 </hibernate-mapping>

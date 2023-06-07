@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+import '../api_model/student.dart';
 import '../api_model/subject.dart';
 import '../component/teacher_dashboard/header.dart';
 import '../component/teacher_dashboard/info_card.dart';
@@ -231,7 +232,8 @@ class ListaNotePageState extends State<ListaNotePage> {
 }
 
 class StudentDashboard extends StatefulWidget {
-  const StudentDashboard({super.key});
+  const StudentDashboard({super.key, required this.student});
+  final Student student;
 
   @override
   State<StudentDashboard> createState() => _StudentDashboardState();

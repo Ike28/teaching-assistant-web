@@ -3,34 +3,34 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
-import '../api_model/teacher.dart';
+import '../api_model/student.dart';
 import '../component/teacher_login/login_button.dart';
 import '../component/teacher_login/login_field.dart';
 import '../component/teacher_login/social_login_button.dart';
 import '../config/api_utils.dart';
 import '../style/palette.dart';
-import 'teacher_dashboard.dart';
+import 'student_dasboard.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class StudentLogin extends StatelessWidget {
+  StudentLogin({super.key});
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  Future<Teacher?> connect() async {
+  Future<Student?> connect() async {
     final String email = _emailController.text;
     final String password = _passwordController.text;
 
     final Response response = await ApiUtils.post(
-        path: '/assistant/users/teachers/login', jsonData: <String, dynamic>{'email': email, 'password': password});
+        path: '/assistant/users/students/login', jsonData: <String, dynamic>{'email': email, 'password': password});
     if (response.statusCode == 200) {
-      final Map<String, dynamic> teacher = jsonDecode(response.body) as Map<String, dynamic>;
-      final Teacher foundTeacher = Teacher(
-          id: teacher['id'] as int,
-          email: teacher['email'] as String,
-          password: teacher['password'] as String,
-          firstname: teacher['firstname'] as String,
-          lastname: teacher['lastname'] as String);
-      return foundTeacher;
+      final Map<String, dynamic> student = jsonDecode(response.body) as Map<String, dynamic>;
+      final Student foundStudent = Student(
+          id: student['id'] as int,
+          email: student['email'] as String,
+          firstname: student['firstname'] as String,
+          lastname: student['lastname'] as String,
+          idClass: student['id_class'] as int);
+      return foundStudent;
     }
     return null;
   }
@@ -50,11 +50,11 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50, color: Palette.whiteColor),
                 ),
                 const SizedBox(height: 50),
-                const SocialLoginButton(iconPath: 'assets/svg/g_logo.svg', label: 'Continuă cu GitHub'),
+                const SocialLoginButton(iconPath: 'assets/svg/profi_login_logo.svg', label: 'Conectare cadre didactice'),
                 const SizedBox(height: 20),
                 const SocialLoginButton(
-                  iconPath: 'assets/svg/f_logo.svg',
-                  label: 'Continuă cu Google',
+                  iconPath: 'assets/svg/admin_login_logo.svg',
+                  label: 'Conectare administratori',
                   horizontalPadding: 90,
                 ),
                 const SizedBox(height: 15),
@@ -70,12 +70,12 @@ class LoginScreen extends StatelessWidget {
                 LoginField(hintText: 'Parolă', obscure: true, controller: _passwordController),
                 const SizedBox(height: 20),
                 LoginButton(onPressed: () async {
-                  final Teacher? foundTeacher = await connect();
-                  if (foundTeacher != null) {
+                  final Student? foundStudent = await connect();
+                  if (foundStudent != null) {
                     Navigator.push(
                         context,
-                        MaterialPageRoute<TeacherDashboard>(
-                            builder: (BuildContext context) => TeacherDashboard(teacher: foundTeacher)));
+                        MaterialPageRoute<StudentDashboard>(
+                            builder: (BuildContext context) => StudentDashboard(student: foundStudent)));
                   }
                 }),
                 const SizedBox(height: 100)

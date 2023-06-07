@@ -8,6 +8,6 @@
             <generator class="identity"/>
         </id>
         <property name="text" column="text"/>
-        <many-to-one name="course" column="id_course" not-null="true"/>
+        <many-to-one name="course" column="id_course" not-null="true" insert="false" update="false"/>
     </class>
 </hibernate-mapping>

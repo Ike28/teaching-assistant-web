@@ -9,15 +9,11 @@ import java.util.Set;
 @Table(name = "student")
 @PrimaryKeyJoinColumn(name = "id")
 public class Student extends User {
-    @ManyToOne
-    @JoinColumn(name = "id_class")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_class", insertable = false, updatable = false)
     private Class assignedClass;
     private String firstname;
     private String lastname;
-    @OneToMany(mappedBy = "student")
-    private Set<AssignmentStatus> assignmentStatuses;
-    @OneToMany(mappedBy = "student")
-    private Set<Grade> grades;
 
     public Student() {
     }
@@ -50,21 +46,5 @@ public class Student extends User {
 
     public void setAssignedClass(Class assignedClass) {
         this.assignedClass = assignedClass;
-    }
-
-    public Set<AssignmentStatus> getAssignmentStatuses() {
-        return assignmentStatuses;
-    }
-
-    public void setAssignmentStatuses(Set<AssignmentStatus> assignmentStatuses) {
-        this.assignmentStatuses = assignmentStatuses;
-    }
-
-    public Set<Grade> getGrades() {
-        return grades;
-    }
-
-    public void setGrades(Set<Grade> grades) {
-        this.grades = grades;
     }
 }

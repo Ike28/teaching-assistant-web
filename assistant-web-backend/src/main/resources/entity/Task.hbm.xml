@@ -7,7 +7,7 @@
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <many-to-one name="assignment" column="id_assignment"/>
+        <many-to-one name="assignment" column="id_assignment" insert="false" update="false"/>
         <property name="text" column="text"/>
         <property name="file" column="file" type="binary"/>
     </class>
