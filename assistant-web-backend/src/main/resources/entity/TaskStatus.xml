@@ -7,8 +7,8 @@
         <id name="id" column="id">
             <generator class="identity"/>
         </id>
-        <many-to-one name="task" column="id_task"/>
-        <many-to-one name="assignmentStatus" class="AssignmentStatus" column="id_assignment"/>
+        <many-to-one name="task" column="id_task" insert="false" update="false"/>
+        <many-to-one name="assignmentStatus" class="AssignmentStatus" column="id_assignment" insert="false" update="false"/>
         <property name="status" column="status"/>
     </class>
 </hibernate-mapping>

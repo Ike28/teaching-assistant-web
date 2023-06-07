@@ -10,10 +10,6 @@ public class Class {
     @Id
     @Column(name = "id")
     private Long id;
-
-
-    @OneToMany(mappedBy = "assignedClass")
-    private Set<Student> students;
     private String name;
 
     public Class() {
@@ -37,14 +33,5 @@ public class Class {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-
-    public Set<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(Set<Student> students) {
-        this.students = students;
     }
 }

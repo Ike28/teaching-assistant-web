@@ -9,6 +9,6 @@
         </id>
         <property name="title" column="title"/>
         <property name="doDate" column="do_date"/>
-        <many-to-one name="course" column="id_course"/>
+        <many-to-one name="course" column="id_course" insert="false" update="false"/>
     </class>
 </hibernate-mapping>

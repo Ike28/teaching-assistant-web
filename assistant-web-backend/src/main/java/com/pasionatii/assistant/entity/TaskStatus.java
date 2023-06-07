@@ -11,14 +11,14 @@ public class TaskStatus {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_task")
+    @JoinColumn(name = "id_task", insertable = false, updatable = false)
     private Task task;
 
     @Column(name = "status")
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "id_assignment")
+    @JoinColumn(name = "id_assignment", insertable = false, updatable = false)
     private AssignmentStatus assignmentStatus;
 
     public TaskStatus() {

@@ -11,7 +11,7 @@ public class Question {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_quiz")
+    @JoinColumn(name = "id_quiz", insertable = false, updatable = false)
     private Quiz quiz;
 
     @Column(name = "text")

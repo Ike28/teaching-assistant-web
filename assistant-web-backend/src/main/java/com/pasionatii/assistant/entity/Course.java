@@ -12,15 +12,15 @@ public class Course {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_profesor")
+    @JoinColumn(name = "id_profesor", insertable = false, updatable = false)
     private Profesor professor;
 
     @ManyToOne
-    @JoinColumn(name = "id_class")
+    @JoinColumn(name = "id_class", insertable = false, updatable = false)
     private Class courseClass;
 
     @ManyToOne
-    @JoinColumn(name = "id_subject")
+    @JoinColumn(name = "id_subject", insertable = false, updatable = false)
     private Subject subject;
     @OneToMany(mappedBy ="course")
     private Set<Assignment> assignments;

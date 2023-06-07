@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../api_model/teacher.dart';
 import '../component/teacher_dashboard/header.dart';
 import '../component/teacher_dashboard/history_table.dart';
 import '../component/teacher_dashboard/homework_progress_chart.dart';
@@ -13,9 +14,10 @@ import '../style/palette.dart';
 import '../style/primary_text.dart';
 
 class TeacherDashboard extends StatelessWidget {
-  TeacherDashboard({super.key});
+  TeacherDashboard({super.key, required this.teacher});
 
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final Teacher teacher;
 
   @override
   Widget build(BuildContext context) {
@@ -74,8 +76,8 @@ class TeacherDashboard extends StatelessWidget {
                             ],
                           ),
                         ),
-                        SizedBox(
-                          height: SizeC0.onfig.blockSizeVertical * 4,
+                        const SizedBox(
+                          height: 30,
                         ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

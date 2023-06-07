@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @PrimaryKeyJoinColumn(name = "id")
 public class GradeQuiz extends Grade {
     @ManyToOne
-    @JoinColumn(name = "id_quiz")
+    @JoinColumn(name = "id_quiz", insertable = false, updatable = false)
     private Quiz quiz;
 
     public GradeQuiz() {

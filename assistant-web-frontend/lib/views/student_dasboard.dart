@@ -1,24 +1,34 @@
+import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+
+import '../api_model/student.dart';
+import '../api_model/subject.dart';
+import '../component/teacher_dashboard/header.dart';
+import '../component/teacher_dashboard/info_card.dart';
+import '../config/size_config.dart';
 
 class ListaLectiiPage extends StatefulWidget {
+  const ListaLectiiPage({super.key});
+
   @override
-  _ListaLectiiPageState createState() => _ListaLectiiPageState();
+  ListaLectiiPageState createState() => ListaLectiiPageState();
 }
 
-class _ListaLectiiPageState extends State<ListaLectiiPage> {
-
+class ListaLectiiPageState extends State<ListaLectiiPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Lectii'),
+        title: const Text('Lista Lectii'),
       ),
-      body: Container(
-      color: Colors.purple,
-        child:  ListView(
-          children: [
+      body: ColoredBox(
+        color: Colors.purple,
+        child: ListView(
+          children: <ListTile>[
             ListTile(
-              title: Text('Lectia 1'),
+              title: const Text('Lectia 1'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -26,25 +36,25 @@ class _ListaLectiiPageState extends State<ListaLectiiPage> {
               },
             ),
             ListTile(
-              title: Text('Lectia 2'),
+              title: const Text('Lectia 2'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 3'),
+              title: const Text('Lectia 3'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 4'),
+              title: const Text('Lectia 4'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Lectia 5'),
+              title: const Text('Lectia 5'),
               onTap: () {
                 // to do
               },
@@ -57,82 +67,25 @@ class _ListaLectiiPageState extends State<ListaLectiiPage> {
 }
 
 class ListaTemePage extends StatefulWidget {
+  const ListaTemePage({super.key});
+
   @override
-  _ListaTemePageState createState() => _ListaTemePageState();
+  ListaTemePageState createState() => ListaTemePageState();
 }
 
-class _ListaTemePageState extends State<ListaTemePage> {
-
+class ListaTemePageState extends State<ListaTemePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Teme'),
+        title: const Text('Lista Teme'),
       ),
-      body: Container(
-          color: Colors.purple,
-          child: ListView(
-            children: [
-              ListTile(
-                title: Text('Tema 1'),
-                onTap: () {
-                  // Implementează acțiunea de navigare către detalii pentru lectia 1
-                  // poți utiliza Navigator.push pentru a deschide o nouă pagină
-                  // unde vei afișa detaliile despre lectia respectivă.
-                },
-              ),
-              ListTile(
-                title: Text('Tema 2'),
-                onTap: () {
-                  // to do
-                },
-              ),
-              ListTile(
-                title: Text('Tema 3'),
-                onTap: () {
-                  // to do
-                },
-              ),
-              ListTile(
-                title: Text('Tema 4'),
-                onTap: () {
-                  // to do
-                },
-              ),
-              ListTile(
-                title: Text('Tema 5'),
-                onTap: () {
-                  // to do
-                },
-              ),
-            ],
-          ),
-        ),
-
-    );
-  }
-}
-
-
-class ListaQuizPage extends StatefulWidget {
-  @override
-  _ListaQuizPageState createState() => _ListaQuizPageState();
-}
-
-class _ListaQuizPageState extends State<ListaQuizPage> {
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Lista Quizuri'),
-      ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.purple,
         child: ListView(
-          children: [
+          children: <ListTile>[
             ListTile(
-              title: Text('Quiz 1'),
+              title: const Text('Tema 1'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -140,25 +93,25 @@ class _ListaQuizPageState extends State<ListaQuizPage> {
               },
             ),
             ListTile(
-              title: Text('Quiz 2'),
+              title: const Text('Tema 2'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 3'),
+              title: const Text('Tema 3'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 4'),
+              title: const Text('Tema 4'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('Quiz 5'),
+              title: const Text('Tema 5'),
               onTap: () {
                 // to do
               },
@@ -166,30 +119,87 @@ class _ListaQuizPageState extends State<ListaQuizPage> {
           ],
         ),
       ),
+    );
+  }
+}
 
+class ListaQuizPage extends StatefulWidget {
+  const ListaQuizPage({super.key});
+
+  @override
+  ListaQuizPageState createState() => ListaQuizPageState();
+}
+
+class ListaQuizPageState extends State<ListaQuizPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Lista Quizuri'),
+      ),
+      body: ColoredBox(
+        color: Colors.purple,
+        child: ListView(
+          children: <ListTile>[
+            ListTile(
+              title: const Text('Quiz 1'),
+              onTap: () {
+                // Implementează acțiunea de navigare către detalii pentru lectia 1
+                // poți utiliza Navigator.push pentru a deschide o nouă pagină
+                // unde vei afișa detaliile despre lectia respectivă.
+              },
+            ),
+            ListTile(
+              title: const Text('Quiz 2'),
+              onTap: () {
+                // to do
+              },
+            ),
+            ListTile(
+              title: const Text('Quiz 3'),
+              onTap: () {
+                // to do
+              },
+            ),
+            ListTile(
+              title: const Text('Quiz 4'),
+              onTap: () {
+                // to do
+              },
+            ),
+            ListTile(
+              title: const Text('Quiz 5'),
+              onTap: () {
+                // to do
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
 
 class ListaNotePage extends StatefulWidget {
+  const ListaNotePage({super.key});
+
   @override
-  _ListaNotePageState createState() => _ListaNotePageState();
+  ListaNotePageState createState() => ListaNotePageState();
 }
 
-class _ListaNotePageState extends State<ListaNotePage> {
-
+class ListaNotePageState extends State<ListaNotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Lista Note'),
+        title: const Text('Lista Note'),
       ),
-      body: Container(
+      body: ColoredBox(
         color: Colors.purple,
         child: ListView(
-          children: [
+          children: <ListTile>[
             ListTile(
-              title: Text('<20/01/2023> Nota 10'),
+              title: const Text('<20/01/2023> Nota 10'),
               onTap: () {
                 // Implementează acțiunea de navigare către detalii pentru lectia 1
                 // poți utiliza Navigator.push pentru a deschide o nouă pagină
@@ -197,19 +207,19 @@ class _ListaNotePageState extends State<ListaNotePage> {
               },
             ),
             ListTile(
-              title: Text('<25/01/2023> Nota 9'),
+              title: const Text('<25/01/2023> Nota 9'),
               onTap: () {
                 // to do
               },
             ),
             ListTile(
-              title: Text('<08/02/2023> Nota 8'),
+              title: const Text('<08/02/2023> Nota 8'),
               onTap: () {
                 // to do
               },
-            ),  1
+            ),
             ListTile(
-              title: Text('<16/03/2023> Nota 10'),
+              title: const Text('<16/03/2023> Nota 10'),
               onTap: () {
                 // to do
               },
@@ -217,14 +227,13 @@ class _ListaNotePageState extends State<ListaNotePage> {
           ],
         ),
       ),
-
     );
   }
 }
 
-
 class StudentDashboard extends StatefulWidget {
-  const StudentDashboard({super.key});
+  const StudentDashboard({super.key, required this.student});
+  final Student student;
 
   @override
   State<StudentDashboard> createState() => _StudentDashboardState();
@@ -233,7 +242,6 @@ class StudentDashboard extends StatefulWidget {
 class _StudentDashboardState extends State<StudentDashboard> {
   final List<Subject> _subjects = <Subject>[];
   final TextEditingController _searchController = TextEditingController();
-  final TextEditingController _nameController = TextEditingController();
 
   bool _isLoading = false;
   bool _updating = false;
@@ -251,7 +259,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
       _subjects.clear();
     });
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/contest/subjects');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects');
 
     final Response response = await client.get(uri);
 
@@ -262,9 +270,7 @@ class _StudentDashboardState extends State<StudentDashboard> {
       setState(() {
         for (int i = 0; i < results.length; i++) {
           final Map<String, dynamic> subject = results[i] as Map<String, dynamic>;
-          final Subject item = Subject(
-              id: subject['id'] as int,
-              name: subject['name'] as String,
+          final Subject item = Subject(id: subject['id'] as int, name: subject['name'] as String);
           _subjects.add(item);
         }
         _isLoading = false;
@@ -272,14 +278,13 @@ class _StudentDashboardState extends State<StudentDashboard> {
     }
   }
 
-
   Future<void> _getSubjectByName({required String name}) async {
     setState(() {
       _isLoading = true;
       _subjects.clear();
     });
     final Client client = Client();
-    final Uri uri = Uri.http('localhost:8080', '/contest/subjects/$name');
+    final Uri uri = Uri.http('localhost:8080', '/assistant/subjects/?subject-name=$name');
 
     final Response response = await client.get(uri);
 
@@ -290,14 +295,10 @@ class _StudentDashboardState extends State<StudentDashboard> {
     }
 
     if (response.statusCode == 200) {
-      final Map<String, dynamic> subject = jsonDecode(response.body) as Map<
-          String,
-          dynamic>;
+      final Map<String, dynamic> subject = jsonDecode(response.body) as Map<String, dynamic>;
 
       setState(() {
-        final Subject item = Subject(
-            id: subject['id'] as int,
-            name: subject['name'] as String,
+        final Subject item = Subject(id: subject['id'] as int, name: subject['name'] as String);
         _subjects.add(item);
         _isLoading = false;
       });
@@ -327,15 +328,16 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       spacing: 20,
                       runSpacing: 20,
                       alignment: WrapAlignment.spaceBetween,
-                      children: [
+                      children: <Widget>[
                         GestureDetector(
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaLectiiPage()),
+                              MaterialPageRoute<ListaLectiiPage>(
+                                  builder: (BuildContext context) => const ListaLectiiPage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/lesson.svg',
                             label: 'Lectii',
                             amount: '>',
@@ -345,10 +347,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaTemePage()),
+                              MaterialPageRoute<ListaTemePage>(
+                                  builder: (BuildContext context) => const ListaTemePage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/teme.svg',
                             label: 'Teme',
                             amount: '>',
@@ -358,10 +361,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaQuizPage()),
+                              MaterialPageRoute<ListaQuizPage>(
+                                  builder: (BuildContext context) => const ListaQuizPage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/quiz.svg',
                             label: 'Quizuri',
                             amount: '>',
@@ -371,10 +375,11 @@ class _StudentDashboardState extends State<StudentDashboard> {
                           onTap: () {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ListaNotePage()),
+                              MaterialPageRoute<ListaNotePage>(
+                                  builder: (BuildContext context) => const ListaNotePage()),
                             );
                           },
-                          child: InfoCard(
+                          child: const InfoCard(
                             icon: 'assets/note.svg',
                             label: 'Note',
                             amount: '>',
@@ -394,14 +399,12 @@ class _StudentDashboardState extends State<StudentDashboard> {
                       _updating = false;
                       Navigator.of(context).pop();
                     },
-                    child: const Text('Iesire')
-                )
+                    child: const Text('Iesire'))
               ],
             );
           });
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -422,68 +425,67 @@ class _StudentDashboardState extends State<StudentDashboard> {
         ),
         body: _isLoading
             ? const Center(
-          child: CircularProgressIndicator(),
-        )
+                child: CircularProgressIndicator(),
+              )
             : Column(
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                    child: TextField(
-                      controller: _searchController,
-                      decoration: const InputDecoration(
-                          label: Text('Cauta materie'),
-                          prefixIcon: Icon(Icons.search),
-                          prefixIconColor: Colors.purple),
-                    )),
-                TextButton(
-                    onPressed: () {
-                      _searchQuery = _searchController.text;
-                      if (_searchQuery.isEmpty) {
-                        _getSubjects();
-                      } else {
-                        _getSubjectsByName(name: _searchQuery);
-                      }
-                    },
-                    style: TextButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
-                    child: const Text('Cautare')),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Expanded(
-              child: _subjects.isNotEmpty
-                  ? GridView.builder(
-                  itemCount: _subjects.length,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-                  itemBuilder: (BuildContext context, int index) {
-                    final Subject subject = _subjects[index];
-                    return Stack(fit: StackFit.expand, children: <Widget>[
-                      Align(
-                          alignment: AlignmentDirectional.bottomEnd,
-                          child: Container(
-                            decoration: const BoxDecoration(
-                                gradient: LinearGradient(
-                                    begin: AlignmentDirectional.bottomCenter,
-                                    end: AlignmentDirectional.topCenter,
-                                    colors: <Color>[Colors.purple, Colors.transparent])),
-                            child: ListTile(
-                              title: Text('${subject.name}'),
-                              subtitle: Text('id #${subject.id}'),
-                              onTap: () {
-                                _showMenu(id: subject.id, name: subject.name);
-                              },
-                            ),
-                          ))
-                    ]);
-                  })
-                  : const Center(
-                child: CircularProgressIndicator(semanticsLabel: 'Se incarca materiile...'),
-              ),
-            )
-          ],
-        ));
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      Expanded(
+                          child: TextField(
+                        controller: _searchController,
+                        decoration: const InputDecoration(
+                            label: Text('Cauta materie'),
+                            prefixIcon: Icon(Icons.search),
+                            prefixIconColor: Colors.purple),
+                      )),
+                      TextButton(
+                          onPressed: () {
+                            _searchQuery = _searchController.text;
+                            if (_searchQuery.isEmpty) {
+                              _getSubjects();
+                            } else {
+                              _getSubjectByName(name: _searchQuery);
+                            }
+                          },
+                          style: TextButton.styleFrom(backgroundColor: Colors.purple, foregroundColor: Colors.white),
+                          child: const Text('Cautare')),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(
+                    child: _subjects.isNotEmpty
+                        ? GridView.builder(
+                            itemCount: _subjects.length,
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+                            itemBuilder: (BuildContext context, int index) {
+                              final Subject subject = _subjects[index];
+                              return Stack(fit: StackFit.expand, children: <Widget>[
+                                Align(
+                                    alignment: AlignmentDirectional.bottomEnd,
+                                    child: Container(
+                                      decoration: const BoxDecoration(
+                                          gradient: LinearGradient(
+                                              begin: AlignmentDirectional.bottomCenter,
+                                              end: AlignmentDirectional.topCenter,
+                                              colors: <Color>[Colors.purple, Colors.transparent])),
+                                      child: ListTile(
+                                        title: Text(subject.name),
+                                        subtitle: Text('id #${subject.id}'),
+                                        onTap: () {
+                                          _showMenu();
+                                        },
+                                      ),
+                                    ))
+                              ]);
+                            })
+                        : const Center(
+                            child: CircularProgressIndicator(semanticsLabel: 'Se incarca materiile...'),
+                          ),
+                  )
+                ],
+              ));
   }
 }
-

@@ -5,6 +5,5 @@
         <key column="id" />
         <property name="firstname" column="firstname" type="string" />
         <property name="lastname" column="lastname" type="string" />
-
     </joined-subclass>
 </hibernate-mapping>

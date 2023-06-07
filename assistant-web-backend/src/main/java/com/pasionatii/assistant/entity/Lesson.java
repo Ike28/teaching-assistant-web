@@ -3,21 +3,25 @@ package com.pasionatii.assistant.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "post")
-public class Post {
+@Table(name = "lesson")
+public class Lesson {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "text")
-    private String text;
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "content")
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "id_course", insertable = false, updatable = false)
     private Course course;
 
-    public Post() {
+    public Lesson() {
     }
 
     public Long getId() {
@@ -28,12 +32,20 @@ public class Post {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getTitle() {
+        return title;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Course getCourse() {

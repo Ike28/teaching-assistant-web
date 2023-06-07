@@ -12,9 +12,17 @@ public class AssignmentStatus {
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_student")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_student", insertable = false, updatable = false)
     private Student student;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id_assignment", insertable = false, updatable = false)
+    private Assignment assignment;
+
+    public AssignmentStatus() {
+
+    }
 
     public Student getStudent() {
         return student;
@@ -22,17 +30,6 @@ public class AssignmentStatus {
 
     public void setStudent(Student student) {
         this.student = student;
-    }
-
-    @ManyToOne
-    @JoinColumn(name = "id_assignment")
-    private Assignment assignment;
-
-    @OneToMany(mappedBy = "assignmentStatus")
-    private Set<TaskStatus> taskStatuses;
-
-    public AssignmentStatus() {
-
     }
 
     public Long getId() {
@@ -49,13 +46,5 @@ public class AssignmentStatus {
 
     public void setAssignment(Assignment assignment) {
         this.assignment = assignment;
-    }
-
-    public Set<TaskStatus> getTaskStatuses() {
-        return taskStatuses;
-    }
-
-    public void setTaskStatuses(Set<TaskStatus> taskStatuses) {
-        this.taskStatuses = taskStatuses;
     }
 }

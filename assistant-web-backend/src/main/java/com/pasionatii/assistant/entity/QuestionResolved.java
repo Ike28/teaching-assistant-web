@@ -11,11 +11,11 @@ public class QuestionResolved {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_student")
+    @JoinColumn(name = "id_student", insertable = false, updatable = false)
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name = "id_question")
+    @JoinColumn(name = "id_question", insertable = false, updatable = false)
     private Question question;
 
     @Column(name = "correct")

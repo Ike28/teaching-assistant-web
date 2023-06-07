@@ -1,6 +1,8 @@
 package com.pasionatii.assistant.controller;
 
 import com.pasionatii.assistant.entity.*;
+import com.pasionatii.assistant.repository.IAssignmentStatusRepository;
+import com.pasionatii.assistant.repository.IGradeRepository;
 import com.pasionatii.assistant.repository.IStudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,15 @@ import java.util.Optional;
 public class StudentController {
     @Autowired
     private IStudentRepository studentRepository;
+    @Autowired
+    private IAssignmentStatusRepository assignmentStatusRepository;
+    @Autowired
+    private IGradeRepository gradeRepository;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<?> getAll() {
+        return new ResponseEntity<>(studentRepository.findAll(), HttpStatus.OK);
+    }
 
     @RequestMapping(value = "?class-id={idClass}", method = RequestMethod.GET)
     public ResponseEntity<?> getAllByClass(@PathVariable String idClass) {
@@ -28,7 +39,7 @@ public class StudentController {
             return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
         } else {
             Student found = student.get();
-            return new ResponseEntity<>(found.getAssignmentStatuses(), HttpStatus.OK);
+            return new ResponseEntity<>(assignmentStatusRepository.findAllByStudent_Id(found.getId()), HttpStatus.OK);
         }
     }
 
@@ -39,7 +50,7 @@ public class StudentController {
             return new ResponseEntity<>("Student not found!", HttpStatus.NOT_FOUND);
         } else {
             Student found = student.get();
-            return new ResponseEntity<>(found.getGrades(), HttpStatus.OK);
+            return new ResponseEntity<>(gradeRepository.findAllByStudent_Id(found.getId()), HttpStatus.OK);
         }
     }
 
