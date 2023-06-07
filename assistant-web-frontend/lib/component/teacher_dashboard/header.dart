@@ -5,15 +5,17 @@ import '../../style/palette.dart';
 import '../../style/primary_text.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key});
+  const Header({super.key, required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
-      const SizedBox(
+      SizedBox(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <PrimaryText>[
-          PrimaryText(text: 'Clasa IX B', size: 30, fontWeight: FontWeight.w800),
-          PrimaryText(
+          PrimaryText(text: title, size: 30, fontWeight: FontWeight.w800),
+          const PrimaryText(
             text: '',
             size: 16,
             color: Palette.secondary,

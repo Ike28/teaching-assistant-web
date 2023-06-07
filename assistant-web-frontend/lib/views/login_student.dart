@@ -10,7 +10,7 @@ import '../component/teacher_login/social_login_button.dart';
 import '../config/api_utils.dart';
 import '../style/palette.dart';
 import 'login_teacher.dart';
-import 'student_dasboard.dart';
+import 'student_dashboard.dart';
 
 class StudentLogin extends StatelessWidget {
   StudentLogin({super.key});
