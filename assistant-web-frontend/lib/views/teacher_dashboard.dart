@@ -12,6 +12,7 @@ import '../config/responsive.dart';
 import '../config/size_config.dart';
 import '../style/palette.dart';
 import '../style/primary_text.dart';
+import 'students_list.dart';
 
 class TeacherDashboard extends StatelessWidget {
   TeacherDashboard({super.key, required this.teacher});
@@ -64,12 +65,21 @@ class TeacherDashboard extends StatelessWidget {
                         ),
                         SizedBox(
                           width: SizeConfig.screenWidth,
-                          child: const Wrap(
+                          child: Wrap(
                             spacing: 20,
                             runSpacing: 20,
                             alignment: WrapAlignment.spaceBetween,
-                            children: <InfoCard>[
-                              InfoCard(icon: 'assets/credit-card.svg', label: 'Gestiune clasă', amount: r'>'),
+                            children: <Widget>[
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute<StudentsList>(
+                                        builder: (BuildContext context) => StudentsList(classId: 1)),
+                                  );
+                                },
+                                child: InfoCard(icon: 'assets/credit-card.svg', label: 'Gestiune clasă', amount: r'>'),
+                              ),
                               InfoCard(icon: 'assets/transfer.svg', label: 'Modifică teme', amount: r'>'),
                               InfoCard(icon: 'assets/bank.svg', label: 'Adaugă teme', amount: r'>'),
                               InfoCard(icon: 'assets/invoice.svg', label: 'Export statistici', amount: '>'),
