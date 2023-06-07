@@ -1,24 +1,45 @@
 package com.pasionatii.assistant.repository.proprietary.implementation;
 
 import com.pasionatii.assistant.entity.Profesor;
+import com.pasionatii.assistant.repository.HibernateUtil;
 import com.pasionatii.assistant.repository.proprietary.IProfesorRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
-public class RepoProfesor implements IProfesorRepository {
+import java.util.Optional;
+
+public class ProfesorRepository implements IProfesorRepository {
 
     private SessionFactory sessionFactory;
 
-    public RepoProfesor(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    public ProfesorRepository() {
+        sessionFactory = HibernateUtil.getSessionFactory();
+    }
+
+    @Override
+    public Optional<Profesor> findByEmailAndPassword(String email, String password) {
+        Session session = sessionFactory.openSession();
+        try {
+            Query<Profesor> query = session.createQuery("FROM Profesor WHERE email = :email AND password = :password", Profesor.class);
+            query.setParameter("email", email);
+            query.setParameter("password", password);
+            Profesor profesor = query.uniqueResult();
+            return Optional.ofNullable(profesor);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Optional.empty();
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public void save(Profesor entity) {
+        Session session = sessionFactory.openSession();
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        try {
             transaction = session.beginTransaction();
             session.save(entity);
             transaction.commit();
@@ -27,15 +48,18 @@ public class RepoProfesor implements IProfesorRepository {
                 transaction.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public void delete(Long id) {
+        Session session = sessionFactory.openSession();
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        try {
             transaction = session.beginTransaction();
-            Profesor profesor = findOneById(id);
+            Profesor profesor = session.get(Profesor.class, id);
             if (profesor != null) {
                 session.delete(profesor);
             }
@@ -45,60 +69,53 @@ public class RepoProfesor implements IProfesorRepository {
                 transaction.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public Profesor findOneById(Long id) {
-        try (Session session = sessionFactory.openSession()) {
+        Session session = sessionFactory.openSession();
+        try {
             return session.get(Profesor.class, id);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public void update(Profesor entity, Profesor newEntity) {
+        Session session = sessionFactory.openSession();
         Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
+        try {
             transaction = session.beginTransaction();
-            entity.setUsername(newEntity.getUsername());
-            entity.setPassword(newEntity.getPassword());
-            entity.setFirstname(newEntity.getFirstname());
-            entity.setLastname(newEntity.getLastname());
-            session.update(entity);
+            session.evict(entity);
+            session.update(newEntity);
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) {
                 transaction.rollback();
             }
             e.printStackTrace();
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public Iterable<Profesor> findAll() {
-        try (Session session = sessionFactory.openSession()) {
-            Query<Profesor> query = session.createQuery("FROM profesor", Profesor.class);
-            return query.list();
+        Session session = sessionFactory.openSession();
+        try {
+            return session.createQuery("FROM Profesor", Profesor.class).list();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
-        }
-    }
-
-    @Override
-    public Iterable<Profesor> findOneByUsernameAndPassword(String username, String password) {
-        try (Session session = sessionFactory.openSession()) {
-            String hql = "FROM Profesor p WHERE p.username = :username AND p.password = :password";
-            Query<Profesor> query = session.createQuery(hql, Profesor.class);
-            query.setParameter("username", username);
-            query.setParameter("password", password);
-            return query.list();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return null;
+        } finally {
+            session.close();
         }
     }
 }

@@ -13,10 +13,10 @@ public class AssignmentServiceImpl implements AssignmentService {
     @Autowired
     private IAssignmentRepository assignmentRepository;
 
-    @Override
-    public List<Assignment> findAssignmentsByAssignedClass_Id(Long classId) {
-        return assignmentRepository.findAssignmentsByAssignedClass_Id(classId);
-    }
+//    @Override
+//    public List<Assignment> findAssignmentsByAssignedClass_Id(Long classId) {
+//        return assignmentRepository.findAssignmentsByAssignedClass_Id(classId);
+//    }
 
     @Override
     public List<Assignment> findAssignmentsByCourse_Id(Long courseId) {

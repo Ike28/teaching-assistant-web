@@ -22,6 +22,16 @@ public class Course {
     @ManyToOne
     @JoinColumn(name = "id_subject", insertable = false, updatable = false)
     private Subject subject;
+    @OneToMany(mappedBy ="course")
+    private Set<Assignment> assignments;
+
+    public Set<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(Set<Assignment> assignments) {
+        this.assignments = assignments;
+    }
 
     public Course() {
     }

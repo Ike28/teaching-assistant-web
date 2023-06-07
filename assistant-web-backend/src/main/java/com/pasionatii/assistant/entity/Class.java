@@ -10,7 +10,6 @@ public class Class {
     @Id
     @Column(name = "id")
     private Long id;
-
     private String name;
 
     public Class() {

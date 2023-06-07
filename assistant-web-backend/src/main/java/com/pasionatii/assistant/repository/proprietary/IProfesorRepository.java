@@ -1,8 +1,11 @@
 package com.pasionatii.assistant.repository.proprietary;
 
 import com.pasionatii.assistant.entity.Profesor;
+import org.springframework.stereotype.Repository;
 
-public interface IProfesorRepository extends Repository<Profesor> {
-    Iterable<Profesor> findOneByUsernameAndPassword(String username,String password);
+import java.util.Optional;
+@Repository
+public interface IProfesorRepository extends IRepository<Profesor>{
+    Optional<Profesor> findByEmailAndPassword(String email, String password);
 
 }
